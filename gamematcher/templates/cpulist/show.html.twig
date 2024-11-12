@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cpulist{% endblock %}
+
+{% block body %}
+    <h1>Cpulist</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cpulist.id }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ cpulist.model }}</td>
+            </tr>
+            <tr>
+                <th>Core</th>
+                <td>{{ cpulist.core }}</td>
+            </tr>
+            <tr>
+                <th>Manufacturer</th>
+                <td>{{ cpulist.manufacturer }}</td>
+            </tr>
+            <tr>
+                <th>Cpuscore</th>
+                <td>{{ cpulist.cpuscore }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cpulist_index') }}">back to list</a>
+
+    <a href="{{ path('app_cpulist_edit', {'id': cpulist.id}) }}">edit</a>
+
+    {{ include('cpulist/_delete_form.html.twig') }}
+{% endblock %}

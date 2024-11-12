@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ramlist{% endblock %}
+
+{% block body %}
+    <h1>Ramlist</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ramlist.id }}</td>
+            </tr>
+            <tr>
+                <th>Technology</th>
+                <td>{{ ramlist.technology }}</td>
+            </tr>
+            <tr>
+                <th>Memory</th>
+                <td>{{ ramlist.memory }}</td>
+            </tr>
+            <tr>
+                <th>Frequency</th>
+                <td>{{ ramlist.frequency }}</td>
+            </tr>
+            <tr>
+                <th>Ramscore</th>
+                <td>{{ ramlist.ramscore }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ramlist_index') }}">back to list</a>
+
+    <a href="{{ path('app_ramlist_edit', {'id': ramlist.id}) }}">edit</a>
+
+    {{ include('ramlist/_delete_form.html.twig') }}
+{% endblock %}

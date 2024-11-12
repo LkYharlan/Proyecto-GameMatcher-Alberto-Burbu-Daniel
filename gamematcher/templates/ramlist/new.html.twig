@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ramlist{% endblock %}
+
+{% block body %}
+    <h1>Create new Ramlist</h1>
+
+    {{ include('ramlist/_form.html.twig') }}
+
+    <a href="{{ path('app_ramlist_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gpulist{% endblock %}
+
+{% block body %}
+    <h1>Gpulist</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gpulist.id }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ gpulist.model }}</td>
+            </tr>
+            <tr>
+                <th>Vram</th>
+                <td>{{ gpulist.vram }}</td>
+            </tr>
+            <tr>
+                <th>Manufacturer</th>
+                <td>{{ gpulist.manufacturer }}</td>
+            </tr>
+            <tr>
+                <th>Gpuscore</th>
+                <td>{{ gpulist.gpuscore }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gpulist_index') }}">back to list</a>
+
+    <a href="{{ path('app_gpulist_edit', {'id': gpulist.id}) }}">edit</a>
+
+    {{ include('gpulist/_delete_form.html.twig') }}
+{% endblock %}
