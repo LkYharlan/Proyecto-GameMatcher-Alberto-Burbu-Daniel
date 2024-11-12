@@ -6,6 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -19,7 +20,7 @@
     </head>
     <body class="bgcolor">
     {% block header %}
-        <header id="headercolor" class="h-20 w-full flex items-center justify-between">
+        <header id="headerColor" class="h-20 w-full flex items-center justify-between">
         <h1 id="fontText" class="mx-8 text-4xl">GAMEMATCHER</h1>
         <div class="flex text-xl mx-8 space-x-6 ">
             <div>
@@ -35,5 +36,6 @@
     {% block body %}
 
     {% endblock %}
+
     </body>
 </html>

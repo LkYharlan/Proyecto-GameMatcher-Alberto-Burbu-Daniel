@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .bgcolor{
     background-color: #333333;
 }
@@ -9,9 +13,13 @@
     color: white;
 
 }
-#headercolor{
+#headerColor{
     background-color: #1c1c1c;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+#footerText{
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(204, 204, 204);
+}
