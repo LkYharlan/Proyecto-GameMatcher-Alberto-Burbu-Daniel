@@ -1,22 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
-
-{% block body %}
-    <h1>Register</h1>
-
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
-
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+{% block title %}Register
 {% endblock %}
 
+{% block body %}
+
+	<div class="bg-[#606060] rounded-3xl flex-col mx-auto mt-[2vh] justify-items-center bg-no-repeat bg-cover bg-center h-[805px] w-[650px]">
+		<div class="flex pt-[40px] ">
+			<p id="fontText" class="text-6xl ">REGISTER</p>
+		</div>
+		<div class="bg-white h-[1px] w-[400px] my-4"></div>
+		<div class="flex">
+			{{ form_errors(registrationForm) }}
+			{{ form_start(registrationForm) }}
+			<div class="space-y-4">
+				{% for field in registrationForm %}
+					{% if field.vars.name is not same as '_token' %}
+						<div>
+							{{ form_label(field, null, {
+                        'label_attr': {
+                        'id': 'fontText',
+                        'class': 'text-white transition ease-in-out text-primary dark:text-accent font-light mb-1',
+                        'for': field.vars.id
+                        }
+                        }) }}
+							{{ form_widget(field, {
+                        'attr': {
+                        'id': field.vars.id,
+                        'class': 'w-full p-3 rounded-[0.4rem] bg-lightBg dark:bg-darkBg text-primary dark:text-darkText border border-lightBg dark:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-accent transition duration-200 ease-in-out'
+                        }
+                        }) }}
+							{{ form_errors(field) }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+		</div>
+
+		<div class="bg-white h-[1px] w-[400px] my-4"></div>
+
+		<button type="submit" id="fontText" class="btn bg-blue-600 w-[360px] h-[50px] border border-blue-700 rounded-[0.4rem] text-white">REGISTER</button>
+		{{ form_end(registrationForm) }}
+
+
+	</div>
+{% endblock %}
