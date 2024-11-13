@@ -1,38 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SEARCH GAMES{% endblock %}
+{% block title %}SEARCH GAMES
+{% endblock %}
 
 
 {% block body %}
-<div class="border-t border-b border-[#6A6A6A]">
+	<div class="border-t border-b border-[#6A6A6A] h-[45px]">
 
-<div class="">
-
-        <svg class="border-r mr-2 border-[#6A6A6A]" width="32" height="32" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 18H20M4 6H20H4ZM4 12H20H4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-
-    <div>
-    {# Aqui irá la barra de busqueda #}
-    </div>
-
-</div>
+		<div class="">
+			<button class="w-[16.2vw] h-[45px] border-r border-[rgb(106,106,106)] mr-2 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+				<p id="fontText">CONFIGURATIONS</p>
+			</button>
+		</div>
 
 
-<div class="flex ">
-    <div class="flex w-[300px] h-[100vh] border-r border-[#6A6A6A]">
-        papa
-    </div>
+		<div>
+			{# Aqui irá la barra de busqueda #}
+		</div>
 
-<div class="flex px-[1vw] py-[3vh] space-x-5 justify-center w-full">
+	</div>
 
-    {% for videogame in videogames %}
-        <a href="">
-            <img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">
-        </a>
-    {% endfor %}
-    </div>
-</div>
+
+	<div class="flex">
+
+		<div class="flex w-[20vw] h-[100vh] border-r border-[#6A6A6A] justify-center">
+			<div class="flex ">
+                <p id="secondaryText">CATEGORY</p>
+            </div>
+		</div>
+
+
+		<div class="flex px-[7vw] py-[3vh] justify-start w-full flex-wrap">
+
+			{% for videogame in videogames %}
+				<a class="w-1/5" href="">
+					<img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">
+				</a>
+			{% endfor %}
+		</div>
+	</div>
 
 {% endblock %}
