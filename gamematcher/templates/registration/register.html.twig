@@ -5,11 +5,12 @@
 
 {% block body %}
 
-	<div class="bg-[#606060] rounded-3xl flex-col mx-auto mt-[2vh] justify-items-center bg-no-repeat bg-cover bg-center h-[805px] w-[650px]">
+	<div class="bg-[#606060] rounded-3xl flex-col mx-auto mt-[2vh] justify-items-center h-[805px] w-[650px]">
 		<div class="flex pt-[40px] ">
-			<p id="fontText" class="text-6xl ">REGISTER</p>
+			<p id="fontText" class="text-6xl">REGISTER</p>
 		</div>
 		<div class="bg-white h-[1px] w-[400px] my-4"></div>
+
 		<div class="flex">
 			{{ form_errors(registrationForm) }}
 			{{ form_start(registrationForm) }}
@@ -35,12 +36,16 @@
 					{% endif %}
 				{% endfor %}
 			</div>
-
 		</div>
+
+
+		<p id="footerText" class="text-[14px] mt-[28px] text-center w-[20vw] mx-[20vw] leading-none">Acceso rápido con</p>
 
 		<div class="bg-white h-[1px] w-[400px] my-4"></div>
 
-		<button type="submit" id="fontText" class="btn bg-blue-600 w-[360px] h-[50px] border border-blue-700 rounded-[0.4rem] text-white">REGISTER</button>
+		<img class="w-10 h-10 " src="{{asset('assets/google_icon.png')}}" alt="google icon">
+
+		<button type="submit" id="fontText" class="btn mt-5 bg-blue-600 w-[360px] h-[50px] border border-blue-700 rounded-[0.4rem] text-white">REGISTER</button>
 		{{ form_end(registrationForm) }}
 
 
