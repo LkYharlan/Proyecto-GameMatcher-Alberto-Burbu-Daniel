@@ -18,15 +18,15 @@ class Videogames
     #[ORM\OneToMany(targetEntity: Genre::class, mappedBy: 'videogames')]
     private Collection $genre_id;
 
-    #[ORM\OneToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Ramlist $ramrequirement = null;
 
-    #[ORM\OneToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Cpulist $cpurequirement = null;
 
-    #[ORM\OneToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'videogames', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Gpulist $gpurequirement = null;
 
@@ -41,6 +41,9 @@ class Videogames
 
     #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'videogame_id')]
     private Collection $comments;
+
+    #[ORM\Column(length: 1000, nullable: true)]
+    private ?string $picture = null;
 
     public function __construct()
     {
@@ -186,6 +189,18 @@ class Videogames
                 $comment->setVideogameId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }

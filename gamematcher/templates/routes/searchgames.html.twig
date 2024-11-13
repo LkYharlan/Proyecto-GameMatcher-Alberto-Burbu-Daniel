@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SEARCH GAMES{% endblock %}
+
+
+{% block body %}
+<div class="border-t border-b border-[#6A6A6A]">
+
+<div class="">
+
+        <svg class="border-r mr-2 border-[#6A6A6A]" width="32" height="32" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 18H20M4 6H20H4ZM4 12H20H4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div>
+    {# Aqui irá la barra de busqueda #}
+    </div>
+
+</div>
+
+
+<div class="flex ">
+    <div class="flex w-[300px] h-[100vh] border-r border-[#6A6A6A]">
+        papa
+    </div>
+
+<div class="flex px-[1vw] py-[3vh] space-x-5 justify-center w-full">
+
+    {% for videogame in videogames %}
+        <a href="">
+            <img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">
+        </a>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

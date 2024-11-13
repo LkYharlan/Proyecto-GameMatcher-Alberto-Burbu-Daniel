@@ -35,6 +35,7 @@ class VideogamesType extends AbstractType
                 'class' => Review::class,
 'choice_label' => 'id',
             ])
+            ->add('picture')
         ;
     }
 

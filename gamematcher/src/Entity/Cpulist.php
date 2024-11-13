@@ -31,7 +31,7 @@ class Cpulist
     #[ORM\OneToOne(mappedBy: 'cpu_id', cascade: ['persist', 'remove'])]
     private ?Myspecs $myspecs = null;
 
-    #[ORM\OneToOne(mappedBy: 'cpurequirement', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Videogames::class, mappedBy: 'cpurequirement', cascade: ['persist', 'remove'])]
     private ?Videogames $videogames = null;
 
     public function getId(): ?int

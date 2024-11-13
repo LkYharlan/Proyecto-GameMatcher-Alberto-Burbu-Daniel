@@ -28,7 +28,7 @@ class Ramlist
     #[ORM\OneToOne(mappedBy: 'ram_id', cascade: ['persist', 'remove'])]
     private ?Myspecs $myspecs = null;
 
-    #[ORM\OneToOne(mappedBy: 'ramrequirement', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity:Videogames::class, mappedBy: 'ramrequirement', cascade: ['persist', 'remove'])]
     private ?Videogames $videogames = null;
 
 

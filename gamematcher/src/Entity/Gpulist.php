@@ -28,7 +28,7 @@ class Gpulist
     #[ORM\OneToOne(mappedBy: 'gpu_id', cascade: ['persist', 'remove'])]
     private ?Myspecs $myspecs = null;
 
-    #[ORM\OneToOne(mappedBy: 'gpurequirement', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: Videogames::class, mappedBy: 'gpurequirement', cascade: ['persist', 'remove'])]
     private ?Videogames $videogames = null;
 
     public function getId(): ?int
