@@ -85,27 +85,42 @@
 			</div>
 
 			<div class="mx-[2vw] space-y-4">
-				<div id="secondaryText" class="secondaryText pt-3">
-					<p>CPU</p>
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">CPU</p>
 					<select name="cpu" id="cpu">
-						{# {% for elem in cpu %}
-						{% endfor %} #}
+						{% for elem in cpu %}
+							{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
+								<option value="" selected>{{elem.model}}</option>
+							{% else %}
+								<option value="">{{elem.model}}</option>
+							{% endif %}
+						{% endfor %}
 					</select>
 				</div>
 
-				<div id="secondaryText" class="secondaryText pt-3">
-					<p>MEMORY</p>
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">MEMORY</p>
 					<select name="ram" id="ram">
-						{# {% for elem in ram %}
-						{% endfor %} #}
+						{% for elem in ram %}
+							{% if elem.id is same as(app.user.myspecs.ramid.id) %}
+								<option value="" selected>{{elem.memory}}</option>
+							{% else %}
+								<option value="">{{elem.memory}}</option>
+							{% endif %}
+						{% endfor %}
 					</select>
 				</div>
 
-				<div id="secondaryText" class="secondaryText pt-3">
-					<p>GPU</p>
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">GPU</p>
 					<select name="gpu" id="gpu">
-						{# {% for elem in gpu %}
-						{% endfor %} #}
+						{% for elem in gpu %}
+							{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
+								<option value="" selected>{{elem.model}}</option>
+							{% else %}
+								<option value="">{{elem.model}}</option>
+							{% endif %}
+						{% endfor %}
 					</select>
 				</div>
 			</div>
@@ -117,7 +132,6 @@
 		</div>
 
 		<div class="flex px-[7vw] py-[3vh] justify-start w-full flex-wrap">
-
 			{% for videogame in videogames %}
 				<a class="w-1/5" href="">
 					<img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">

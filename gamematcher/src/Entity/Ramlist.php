@@ -25,13 +25,6 @@ class Ramlist
     #[ORM\Column]
     private ?int $ramscore = null;
 
-    #[ORM\OneToOne(mappedBy: 'ram_id', cascade: ['persist', 'remove'])]
-    private ?Myspecs $myspecs = null;
-
-    #[ORM\OneToMany(targetEntity:Videogames::class, mappedBy: 'ramrequirement', cascade: ['persist', 'remove'])]
-    private ?Videogames $videogames = null;
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -81,45 +74,6 @@ class Ramlist
     public function setRamscore(int $ramscore): static
     {
         $this->ramscore = $ramscore;
-
-        return $this;
-    }
-
-    public function getMyspecs(): ?Myspecs
-    {
-        return $this->myspecs;
-    }
-
-    public function setMyspecs(?Myspecs $myspecs): static
-    {
-        // unset the owning side of the relation if necessary
-        if ($myspecs === null && $this->myspecs !== null) {
-            $this->myspecs->setRamId(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($myspecs !== null && $myspecs->getRamId() !== $this) {
-            $myspecs->setRamId($this);
-        }
-
-        $this->myspecs = $myspecs;
-
-        return $this;
-    }
-
-    public function getVideogames(): ?Videogames
-    {
-        return $this->videogames;
-    }
-
-    public function setVideogames(Videogames $videogames): static
-    {
-        // set the owning side of the relation if necessary
-        if ($videogames->getRamrequirement() !== $this) {
-            $videogames->setRamrequirement($this);
-        }
-
-        $this->videogames = $videogames;
 
         return $this;
     }

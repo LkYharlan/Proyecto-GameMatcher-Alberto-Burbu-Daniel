@@ -14,16 +14,17 @@ class Myspecs
     private ?int $id = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)] 
     private ?User $user_id = null;
 
-    #[ORM\OneToOne(inversedBy: 'myspecs', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Cpulist $cpu_id = null;
 
-    #[ORM\OneToOne(inversedBy: 'myspecs', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
     private ?Gpulist $gpu_id = null;
 
-    #[ORM\OneToOne(inversedBy: 'myspecs', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
     private ?Ramlist $ram_id = null;
 
     public function getId(): ?int
