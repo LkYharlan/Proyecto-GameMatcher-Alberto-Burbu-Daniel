@@ -87,7 +87,7 @@
 			<div class="mx-[2vw] space-y-4">
 				<div id="selectText" class="secondaryText pt-3">
 					<p id="secondaryText">CPU</p>
-					<select name="cpu" id="cpu">
+					<select name="cpu" id="cpu" class="rounded-2xl w-[10vw]">
 						{% for elem in cpu %}
 							{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
 								<option value="" selected>{{elem.model}}</option>
@@ -100,7 +100,7 @@
 
 				<div id="selectText" class="secondaryText pt-3">
 					<p id="secondaryText">MEMORY</p>
-					<select name="ram" id="ram">
+					<select name="ram" id="ram" class="rounded-2xl w-[10vw]">
 						{% for elem in ram %}
 							{% if elem.id is same as(app.user.myspecs.ramid.id) %}
 								<option value="" selected>{{elem.memory}}</option>
@@ -113,7 +113,7 @@
 
 				<div id="selectText" class="secondaryText pt-3">
 					<p id="secondaryText">GPU</p>
-					<select name="gpu" id="gpu">
+					<select name="gpu" id="gpu" class="rounded-2xl w-[10vw]">
 						{% for elem in gpu %}
 							{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
 								<option value="" selected>{{elem.model}}</option>
