@@ -143,7 +143,7 @@ class Cpulist
             $videogames->setCpurequirement($this);
         }
 
-        $this->videogames = $videogames;
+       $this->videogames = $videogames;
 
         return $this;
     }

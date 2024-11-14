@@ -22,13 +22,99 @@
 
 
 	<div class="flex">
+		<div class="flex-col w-[20vw] h-[100vh] border-r border-[#6A6A6A] justify-center ">
 
-		<div class="flex w-[20vw] h-[100vh] border-r border-[#6A6A6A] justify-center">
-			<div class="flex ">
-                <p id="secondaryText">CATEGORY</p>
-            </div>
+			<div class="flex-col justify-center px-2">
+				<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">CATEGORY</p>
+				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+			</div>
+
+			<div class="mx-[2vw] space-y-4">
+				<div id="secondaryText" class="secondaryText pt-3">
+					<input type="checkbox" id="action" name="action_category">
+					<label for="action">Action</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="adventure" name="adventure_category">
+					<label for="adventure">Adventure</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="arcade" name="arcade_category">
+					<label for="arcade">Arcade</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="cooperative" name="cooperative_category">
+					<label for="cooperative">Cooperative</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="first_person_shooter" name="first_person_category">
+					<label for="first_person">First Person Shooter</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="third_person_shooter" name="third_person_shooter_category">
+					<label for="third_person_shooter">Third Person Shooter</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="horror" name="horror_category">
+					<label for="horror">Horror</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="indie" name="indie_category">
+					<label for="indie">Indie</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="multiplayer" name="multiplayer_category">
+					<label for="multiplayer">Multiplayer</label>
+				</div>
+			</div>
+
+			<div class="flex-col justify-center px-2 pt-7">
+				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+			</div>
+
+			<div class="flex-col justify-center px-2">
+				<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">SPECS</p>
+			</div>
+
+			<div class="mx-[2vw] space-y-4">
+				<div id="secondaryText" class="secondaryText pt-3">
+					<p>CPU</p>
+					<select name="cpu" id="cpu">
+						{# {% for elem in cpu %}
+						{% endfor %} #}
+					</select>
+				</div>
+
+				<div id="secondaryText" class="secondaryText pt-3">
+					<p>MEMORY</p>
+					<select name="ram" id="ram">
+						{# {% for elem in ram %}
+						{% endfor %} #}
+					</select>
+				</div>
+
+				<div id="secondaryText" class="secondaryText pt-3">
+					<p>GPU</p>
+					<select name="gpu" id="gpu">
+						{# {% for elem in gpu %}
+						{% endfor %} #}
+					</select>
+				</div>
+			</div>
+
+			<div class="flex-col justify-center px-2 pt-7">
+				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+			</div>
+
 		</div>
-
 
 		<div class="flex px-[7vw] py-[3vh] justify-start w-full flex-wrap">
 

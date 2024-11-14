@@ -21,7 +21,7 @@
     <body class="bgcolor">
     {% block header %}
         <header id="headerColor" class="h-20 w-full flex items-center justify-between">
-        <h1 id="fontText" class="mx-8 text-4xl">GAMEMATCHER</h1>
+        <a href="{{path('landing')}}"><h1 id="fontText" class="mx-8 text-4xl">GAMEMATCHER</h1></a>
         <div class="flex text-xl mx-8 space-x-6 ">
     
     {% if not app.user %}
@@ -34,7 +34,7 @@
     {% else %}
     <div class="flex text-3xl mx-8 space-x-[5vw] items-center">
 		<div>
-			<a id="searchGames" class="text-blue-600" href="{{path('app_login')}}">
+			<a id="searchGames" class="text-blue-600" href="{{path('searchgames')}}">
 				<button>SEARCH GAMES</button>
 			</a>
 		</div>
