@@ -6,6 +6,8 @@
 
 {% block body %}
 
+{% if not app.user %}
+
     <div class="flex items-center bg-[url(../../public/assets/pc-gaming.png)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
 
         <div id="fontText" class="w-full h-[60vh] bg-black bg-opacity-60 flex-col content-center"> 
@@ -13,11 +15,40 @@
             <p class="text-[32px] text-center mx-[20vw] pt-10">RELLENA NUESTRO FORMULARIO CON TU HARDWARE Y DESCÚBRELO ;)</p>
         </div>
 
-    <div id="footerText" class="content-center absolute h-10 bg-black bg-opacity-60 w-full self-end ">
+        <div id="footerText" class="content-center absolute h-10 bg-black bg-opacity-60 w-full self-end ">
 
             <p class="text-[16px] text-center mx-[20vw] leading-none">COPYRIGHT 2024 &copy;</p>
         </div>
     </div>
+
+{% else %}
+
+    <div class="flex items-center bg-[url(../../public/assets/news_background.jpg)] bg-cover bg-center h-[30vh]">
+        <div class="content-center absolute h-20 bg-black bg-opacity-60 w-full self-start ">
+            <p id="fontText" class="flex justify-center text-[50px] align-middle">NEWS</p>
+        </div>
+    </div>
+
+    <div class="flex items-center bg-[url(../../public/assets/concordnew.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
+        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
+            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">"No entiendo por qué no funcionó": El director del episodio de Concord para Secret Level habla de la cancelación.</p>
+        </div>
+    </div>
+
+    <div class="flex items-center bg-[url(../../public/assets/eanews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
+        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
+            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">El director ejecutivo de Electronic Arts, Andrew Wilson, está en las quinielas para dirigir Disney.</p>
+        </div>
+    </div>
+
+    <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
+        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
+            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+        </div>
+    </div>
+
+
+{% endif %}
 
 
 {% endblock %}
