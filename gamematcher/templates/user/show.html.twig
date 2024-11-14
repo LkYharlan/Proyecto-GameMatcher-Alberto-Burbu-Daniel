@@ -53,25 +53,26 @@
     {{ include('user/_delete_form.html.twig') }} #}
 
 
-<div class="bg-[#606060] rounded-3xl flex-col mx-auto mt-[3vh] h-[780px] w-[850px]">
-    <div class="flex h-[200px] w-[850px] bg-[#2573EB] rounded-t-3xl">
-        <div class="h-32 w-32 bg-white flex ml-[28px] self-center border border-[#6C6C6C] rounded-full">
+<div class="bg-[#606060] rounded-3xl space-y-[16px] flex-col mx-auto mt-[3vh] h-[902px] w-[846px]">
+    <div class="flex h-[250px] w-full bg-[#2573EB] rounded-t-3xl">
+        <div class="h-[200px] w-[200px] bg-white flex ml-[28px] self-center border border-[#6C6C6C] rounded-full">
         </div>
         <p id="fontText" class="self-center text-4xl pl-5">{{ user.username }}</p>
     </div>
 
-        <div id="secondaryText" class="flex flex-col">
+    <div id="secondaryText" class="w-[781px] h-[126px] bg-white mx-[32px] rounded-lg">
 
-            <div class="flex">
+    </div>
 
-            </div>
-
-            <div class="flex">
-                <p>Email: </p>
-                <p>{{ user.email }}</p>
-            </div>
-
+    <div class="flex mx-[32px] space-x-[32px]">
+        <div class="h-[462px] w-[450px] bg-gray-400 rounded-lg">
+            <p>Paquito</p>
         </div>
+
+        <div class="h-[462px] w-[298px] bg-gray-700 rounded-lg">
+            Lolita
+        </div>
+    </div>
         
 </div>
 
