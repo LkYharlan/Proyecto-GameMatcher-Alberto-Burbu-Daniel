@@ -27,8 +27,28 @@
     <a href="{{ path('app_videogames_edit', {'id': videogame.id}) }}">edit</a>
 
     {{ include('videogames/_delete_form.html.twig') }} #}
+ 
+<div class="flex-col w-[1500px] h-full m-auto py-[25px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
+  
+    <iframe src="https://www.youtube.com/embed/40BZyMdDG4s?si=JAiQ056u0am_ykGk" frameborder="0" height="720" width="1280px" class="m-auto"></iframe>
+
+    <div class="flex w-[1280px] h-[440px] mx-auto backdrop-blur-lg space-x-[24px]">    
+        <div class="h-full w-[920px] bg-gray-500 flex">
+            <img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
+
+            <div class="self-center w-[781px] h-[300px] bg-slate-200 mx-[16px]">
+                <h1>Título</h1>
+                <p>DESCRIPCIÓN</p>
+            </div>
+
+        </div>
+        <div class="h-full w-[360px] bg-gray-500">
+        </div>
+    
+    </div>
 
 
+</div>
 
 
 
