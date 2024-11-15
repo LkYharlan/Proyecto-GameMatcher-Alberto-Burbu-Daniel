@@ -1,13 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Edit User
+{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
 
-    {{ include('user/_delete_form.html.twig') }}
+	{{form_start(form)}}
+
+
+	<div class="bg-[#606060] rounded-3xl space-y-[16px] flex-col mx-auto mt-[3vh] h-[902px] w-[846px]">
+		<div class="flex h-[250px] w-full bg-[#2573EB] rounded-t-3xl">
+			<div class="h-[200px] w-[200px] bg-white flex ml-[28px] self-center border border-[#6C6C6C] rounded-full"></div>
+			<p class="self-center text-3xl pl-5">
+				{{ form_widget(form.username, {'attr': {'class': 'w-[300px] rounded'}}) }}</p>
+
+
+		</div>
+
+		<div id="secondaryText" class="flex w-[781px] h-[126px] break-words bg-[#757575] mx-[32px] rounded-lg">
+			<p id="selectText" class="m-[8px]">{{form_widget(form.aboutme, {'attr': {'class': 'w-[765px] h-[110px] rounded'}}) }}</p>
+
+		</div>
+
+		<div class="flex mx-[32px] space-x-[32px]">
+
+			<div id="secondaryText" class="h-[462px] w-[450px] content-center bg-[#757575] break-words rounded">
+				<div class="m-auto flex flex-col items-center">
+					<p id="fontText" class="text-3xl">Profile Data</p>
+                    <div class="border-b w-[354px] border-white my-[32px]"></div>
+					<div class="">
+						<div class="flex">
+							<div class="flex-col m-[4px]">
+								<p id="fontText">FIRST NAME</p>
+								<p id="selectText">{{form_widget(form.firstname, {'attr': {'class': 'w-[172px] h-[32px] rounded'}})}}</p>
+							</div>
+							<div class="flex-col m-[4px]">
+								<p id="fontText">LAST NAME</p>
+								<p id="selectText">{{form_widget(form.lastname, {'attr': {'class': 'w-[174px] h-[32px] rounded'}})}}</p>
+							</div>
+						</div>
+                        <div class="m-[4px] mt-4">
+						    <p id="fontText">EMAIL</p>
+						    <p id="selectText" class="">{{form_widget(form.email, {'attr': {'class': 'w-[354px] h-[32px] rounded'}})}}</p>
+                        </div>
+                    <div class="border-b w-[354px] border-white my-[32px]"></div>
+					</div>
+				</div>
+			</div>
+			<div id="secondaryText" class="h-[462px] w-[298px] bg-[#757575] break-words rounded-lg">
+				<p class="m-[8px]">Lolita</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	{{form_end(form)}}
+	<form action="" method="post">
+		<button name="foo" value="upvote">Upvote</button>
+	</form>
+
+
+	{# <h1>Edit User</h1>
+		    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+		
+		    <a href="{{ path('app_user_index') }}">back to list</a>
+		
+		    {{ include('user/_delete_form.html.twig') }} #}
 {% endblock %}

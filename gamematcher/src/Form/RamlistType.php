@@ -19,14 +19,6 @@ class RamlistType extends AbstractType
             ->add('memory')
             ->add('frequency')
             ->add('ramscore')
-            ->add('myspecs', EntityType::class, [
-                'class' => Myspecs::class,
-'choice_label' => 'id',
-            ])
-            ->add('videogames', EntityType::class, [
-                'class' => Videogames::class,
-'choice_label' => 'id',
-            ])
         ;
     }
 
