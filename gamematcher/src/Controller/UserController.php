@@ -2,8 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Cpulist;
+use App\Form\CpulistType;
+use App\Repository\CpulistRepository;
+use App\Form\Gpulist;
+use App\Entity\GpulistType;
+use App\Repository\GpulistRepository;
+use App\Entity\Ramlist;
+use App\Form\RamlistType;
+use App\Repository\RamlistRepository;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\UserEditType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,30 +55,32 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
+        #[Route('/edit/{id}', name: 'app_user_edit', methods: ['GET', 'POST'])]
+        public function edit(GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository, Request $request, User $user, EntityManagerInterface $entityManager): Response
+        {
+            $form = $this->createForm(UserEditType::class, $user);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+               
+                $entityManager->flush();
+                return $this->redirectToRoute('app_user_show', ['id'=> $user->getId()], Response::HTTP_SEE_OTHER);
+            }
+    
+            return $this->render('user/edit.html.twig', [
+                'user' => $user,
+                'form' => $form,
+                'cpu' => $cpulistRepository->findAll(),
+                'gpu' => $gpulistRepository->findAll(),
+                'ram' => $ramlistRepository->findAll()
+            ]);
+        }
+    
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
             'user' => $user,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form,
         ]);
     }
 

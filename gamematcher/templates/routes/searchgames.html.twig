@@ -133,7 +133,7 @@
 
 		<div class="flex px-[7vw] py-[3vh] justify-start w-full flex-wrap">
 			{% for videogame in videogames %}
-				<a class="w-1/5" href="">
+				<a class="w-1/5" href="{{path('app_videogames_show', {'id': videogame.id})}}">
 					<img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">
 				</a>
 			{% endfor %}
