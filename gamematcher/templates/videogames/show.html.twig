@@ -35,11 +35,14 @@
     <div class="flex w-[1280px] h-[440px] mx-auto backdrop-blur-lg space-x-[24px]">    
         <div class="h-full w-[920px] bg-gray-500 flex">
             <img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
+            <div id="fontText" class=" absolute flex w-[79px] h-[100px] bg-gradient-to-b from-[#4A6EFF] to-[#243785] justify-center right-[416px] text-[36px]"><p class="self-center">9.8</p></div>
 
             <div class="self-center w-[781px] h-[360px] mx-[16px]">
-                <h1 id="fontText" class="text-5xl tracking-wide">TEKKEN 8</h1>
+                <div class="flex w-[573px] pr-[16px] justify-between">
+                    <h1 id="fontText" class="text-5xl tracking-wide">TEKKEN 8</h1>
+                </div>
                 <div class="border-b w-full border-[#FFFFFF] my-[24px]"></div>
-                <p id="secondaryText">As the souls of the dead fill the space of my mind, I'll search without sleeping 'til peace I can find, I fear not the weather, I fear not the sea, I remember the fallen, do they think of me? When their bones in the ocean forever will be.</p>
+                <p id="secondaryText" class="text-[24px] leading-tight">As the souls of the dead fill the space of my mind, I'll search without sleeping 'til peace I can find, I fear not the weather, I fear not the sea, I remember the fallen, do they think of me? When their bones in the ocean forever will be.</p>
             </div>
 
         </div>
@@ -50,9 +53,9 @@
             </div>
             <div class="border-b w-full border-[#FFFFFF]"></div>
             <div class="flex flex-col justify-start items-center">
-                <h3 id="fontText" class="text-base">CPU</h3>
-                <div id="secondaryText" class="h-[24px] w-[126px] mb-[16px] bg-[#333333] text-center">ryzen 5600X</div>
-                <div id="secondaryText" class="h-[24px] w-[126px] bg-[#333333] text-center">i-5 10400F</div>
+                <h3 id="fontText" class="text-base text-[16px]">CPU</h3>
+                <div id="secondaryText" class="h-[24px] w-[126px] mb-[16px] bg-[#333333] text-center text-[16px]">ryzen 5600X</div>
+                <div id="secondaryText" class="h-[24px] w-[126px] bg-[#333333] text-center text-[16px]">i-5 10400F</div>
             </div>
             <div class="flex flex-col justify-start items-center">
                 <h3 id="fontText" class="text-base">RAM</h3>
@@ -119,7 +122,7 @@
             </div>
             <div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
 
-            <div id="secondaryText">
+            <div id="secondaryText" class="text-[24px] leading-tight">
             {{comments.0.text}}
             </div>
         </div>
