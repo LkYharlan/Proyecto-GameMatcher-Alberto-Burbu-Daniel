@@ -28,7 +28,7 @@
 
     {{ include('videogames/_delete_form.html.twig') }} #}
  
-<div class="flex-col w-[1500px] h-full m-auto py-[25px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
+<div class="flex-col w-[1500px] h-full m-auto py-[25px] px-[110px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
   
     <iframe src="https://www.youtube.com/embed/40BZyMdDG4s?si=JAiQ056u0am_ykGk" frameborder="0" height="720" width="1280px" class="m-auto"></iframe>
 
@@ -36,15 +36,108 @@
         <div class="h-full w-[920px] bg-gray-500 flex">
             <img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
 
-            <div class="self-center w-[781px] h-[300px] bg-slate-200 mx-[16px]">
-                <h1>Título</h1>
-                <p>DESCRIPCIÓN</p>
+            <div class="self-center w-[781px] h-[360px] mx-[16px]">
+                <h1 id="fontText" class="text-5xl tracking-wide">TEKKEN 8</h1>
+                <div class="border-b w-full border-[#FFFFFF] my-[24px]"></div>
+                <p id="secondaryText">As the souls of the dead fill the space of my mind, I'll search without sleeping 'til peace I can find, I fear not the weather, I fear not the sea, I remember the fallen, do they think of me? When their bones in the ocean forever will be.</p>
             </div>
 
         </div>
-        <div class="h-full w-[360px] bg-gray-500">
+
+        <div class="flex flex-col justify-start items-center h-full w-[360px] p-[24px] space-y-[24px] bg-gray-500">
+            <div class="flex justify-center items-center h-[60px] w-[201px]">
+                <h2 id="fontText" class="text-5xl">SPECS</h2>
+            </div>
+            <div class="border-b w-full border-[#FFFFFF]"></div>
+            <div class="flex flex-col justify-start items-center">
+                <h3 id="fontText" class="text-base">CPU</h3>
+                <div id="secondaryText" class="h-[24px] w-[126px] mb-[16px] bg-[#333333] text-center">ryzen 5600X</div>
+                <div id="secondaryText" class="h-[24px] w-[126px] bg-[#333333] text-center">i-5 10400F</div>
+            </div>
+            <div class="flex flex-col justify-start items-center">
+                <h3 id="fontText" class="text-base">RAM</h3>
+                <div id="secondaryText" class="h-[24px] w-[126px] bg-[#333333] text-center">8GB</div>
+            </div>
+            <div class="flex flex-col justify-start items-center">
+                <h3 id="fontText" class="text-base">GPU</h3>
+                <div id="secondaryText" class="h-[24px] w-[126px] mb-[16px] bg-[#333333] text-center">RTX 2060X</div>
+                <div id="secondaryText" class="h-[24px] w-[126px] bg-[#333333] text-center">RX Radeon 580</div>
+            </div>
         </div>
-    
+    </div>
+
+    <div class="flex space-x-[24px] w-[1280px] justify-between">
+
+        <div class="flex bg-gradient-to-r from-[#171D25] to-[#374659] ">
+            <div class="h-[128px] w-[130px] p-[30px]">
+                <img src="{{asset('assets/steam-icon.svg')}}" alt="Instat-Gaming icon" class="w-[69px] h-[67px]">
+            </div>
+            <div id="secondaryText" class="flex justify-center items-center h-[128px] w-[280px]">
+                <h3 class="text-[64px] bg-gradient-to-r from-[#59AC22] to-[#6BF80D] inline-block text-transparent bg-clip-text">66,99 €</h3>
+            </div>
+        </div>
+        <div class="flex bg-gradient-to-r from-[#000000] to-[#FF670D]">
+            <div class="h-[128px] w-[130px] p-[30px]">
+                <img src="{{asset('assets/instantgaming-icon.svg')}}" alt="Instat-Gaming icon" class="w-[69px] h-[67px]">
+            </div>
+            <div id="secondaryText" class="flex justify-center items-center h-[128px] w-[280px]">
+                <h3 class="text-[64px] bg-gradient-to-r from-[#59AC22] to-[#6BF80D] inline-block text-transparent bg-clip-text">29,76 €</h3>
+            </div>
+        </div>
+        <div class="flex bg-gradient-to-r from-[#4618AC] to-[#1C0A46]">
+            <div class="h-[128px] w-[130px] p-[30px]">
+                <img src="{{asset('assets/eneba-icon.svg')}}" alt="Eneba icon" class="w-[69px] h-[67px]">
+            </div>
+            <div id="secondaryText" class="flex justify-center items-center h-[128px] w-[280px]">
+                <h3 class="text-[64px] bg-gradient-to-r from-[#59AC22] to-[#6BF80D] inline-block text-transparent bg-clip-text">40,83 €</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="border-b w-[1280px] border-[#FFFFFF]"></div>
+
+    <div class="flex space-x-[24px]">
+        <div class="h-[402px] w-[996px] p-[24px] bg-gray-500">
+            <div class="flex">
+                <div class="flex items-center space-x-[24px]">
+                    <img src="{{asset(app.user.picture)}}" class="h-[100px] w-[100px] rounded-full border border-[#6C6C6C]" alt="User Picture">
+                    <div id="secondaryText" class="text-[32px]">{{app.user.username}}</div>
+                </div>
+                <div class="flex justify-end items-center w-full h-[100px] space-x-[16px]">
+                    <div class="flex flex-col justify-end items-center space-y-[8px]">
+                        <h3 id="fontText" class="text-base">CPU</h3>
+                        <h3 id="fontText" class="text-base">RAM</h3>
+                        <h3 id="fontText" class="text-base">GPU</h3>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-[8px]">
+                        <div id="secondaryText" class="h-[24px] w-[126px] bg-[#2573EB] text-center">Ryzen 5600X</div>
+                        <div id="secondaryText" class="h-[24px] w-[126px] bg-[#2573EB] text-center">8GB</div>
+                        <div id="secondaryText" class="h-[24px] w-[126px] bg-[#2573EB] text-center">RTX 2060X</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
+
+            <div id="secondaryText">
+            {{comments.0.text}}
+            </div>
+        </div>
+        <div class="flex flex-col justify-center items-center h-[168px] w-[489px]  bg-gray-500">
+            <div id="secondaryText" class="text-[32px]">GENRE</div>
+            <div class="border-b w-[388px] my-[24px] border-[#FFFFFF] "></div>
+            <div class="flex w-[404px] h-[24px] justify-center items-center">
+                <div id="secondaryText" class="h-[24px] w-[124px] bg-[#333333] text-center mr-2">ryzen 5600X</div>
+                <div id="secondaryText" class="h-[24px] w-[124px] bg-[#333333] text-center mr-2">ryzen 5600X</div>
+                <div id="secondaryText" class="h-[24px] w-[124px] bg-[#333333] text-center">ryzen 5600X</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-b w-[844px] border-[#FFFFFF] pt-[39px]"></div>
+
+    <div>
+        <p id="secondaryText" class="">+ Add Comment</p>
     </div>
 
 

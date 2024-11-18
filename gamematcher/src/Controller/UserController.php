@@ -62,7 +62,6 @@ class UserController extends AbstractController
             $form = $this->createForm(UserEditType::class, $user);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-               
                 $entityManager->flush();
                 return $this->redirectToRoute('app_user_show', ['id'=> $user->getId()], Response::HTTP_SEE_OTHER);
             }

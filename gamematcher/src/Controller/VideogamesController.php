@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\Videogames;
 use App\Form\VideogamesType;
 use App\Repository\VideogamesRepository;
+use App\Entity\Comments;
+use App\Form\CommentsType;
+use App\Repository\CommentsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,10 +46,11 @@ class VideogamesController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_videogames_show', methods: ['GET'])]
-    public function show(Videogames $videogame): Response
+    public function show(Videogames $videogame, CommentsRepository $commentsRepository): Response
     {
         return $this->render('videogames/show.html.twig', [
             'videogame' => $videogame,
+            'comments' => $commentsRepository->findAll()
         ]);
     }
 
