@@ -2,6 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Cpulist;
+use App\Form\CpulistType;
+use App\Repository\CpulistRepository;
+use App\Form\Gpulist;
+use App\Entity\GpulistType;
+use App\Repository\GpulistRepository;
+use App\Entity\Ramlist;
+use App\Form\RamlistType;
+use App\Repository\RamlistRepository;
 use App\Entity\Myspecs;
 use App\Form\MyspecsType;
 use App\Repository\MyspecsRepository;
@@ -23,7 +32,7 @@ class MyspecsController extends AbstractController
     }
 
     #[Route('/new', name: 'app_myspecs_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository, EntityManagerInterface $entityManager): Response
     {
         $myspec = new Myspecs();
         $form = $this->createForm(MyspecsType::class, $myspec);
@@ -33,12 +42,15 @@ class MyspecsController extends AbstractController
             $entityManager->persist($myspec);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_myspecs_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('landing', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('myspecs/new.html.twig', [
             'myspec' => $myspec,
             'form' => $form,
+            'cpu' => $cpulistRepository->findAll(),
+            'gpu' => $gpulistRepository->findAll(),
+            'ram' => $ramlistRepository->findAll()
         ]);
     }
 
@@ -59,7 +71,7 @@ class MyspecsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_myspecs_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('landing', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('myspecs/edit.html.twig', [

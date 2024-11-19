@@ -5,8 +5,23 @@ namespace App\Controller;
 use App\Entity\Videogames;
 use App\Form\VideogamesType;
 use App\Repository\VideogamesRepository;
+use App\Entity\Review;
+use App\Form\ReviewType;
+use App\Repository\ReviewRepository;
 use App\Entity\Comments;
 use App\Form\CommentsType;
+use App\Entity\Cpulist;
+use App\Form\CpulistType;
+use App\Repository\CpulistRepository;
+use App\Form\Gpulist;
+use App\Entity\GpulistType;
+use App\Repository\GpulistRepository;
+use App\Entity\Ramlist;
+use App\Form\RamlistType;
+use App\Repository\RamlistRepository;
+use App\Entity\Genre;
+use App\Form\GenreType;
+use App\Repository\GenreRepository;
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,11 +61,16 @@ class VideogamesController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_videogames_show', methods: ['GET'])]
-    public function show(Videogames $videogame, CommentsRepository $commentsRepository): Response
+    public function show(Videogames $videogame, CommentsRepository $commentsRepository, GenreRepository $genreRepository, Reviewrepository $reviewRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
     {
         return $this->render('videogames/show.html.twig', [
             'videogame' => $videogame,
-            'comments' => $commentsRepository->findAll()
+            'comments' => $commentsRepository->findAll(),
+            'reviews' => $reviewRepository->findAll(),
+            'cpu' => $cpulistRepository->findAll(),
+            'gpu' => $gpulistRepository->findAll(),
+            'ram' => $ramlistRepository->findAll(),
+            'genre' => $genreRepository->findAll(),
         ]);
     }
 

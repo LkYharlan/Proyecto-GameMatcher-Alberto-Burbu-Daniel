@@ -5,10 +5,10 @@
 
 
 {% block body %}
-	<div class="border-t border-b border-[#6A6A6A] h-[45px]">
+	<div class="border-t border-b border-[#6A6A6A] h-full">
 
 		<div class="">
-			<button class="w-[16.2vw] h-[45px] border-r border-[rgb(106,106,106)] mr-2 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+			<button class="w-[16.7vw] h-[45px] border-r border-[rgb(106,106,106)] mr-0 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
 				<p id="fontText">CONFIGURATIONS</p>
 			</button>
 		</div>
@@ -22,7 +22,7 @@
 
 
 	<div class="flex">
-		<div class="flex-col w-[20vw] h-[100vh] border-r border-[#6A6A6A] justify-center ">
+		<div class="flex-col w-[20vw] h-[100vw] border-r border-[#6A6A6A] justify-center ">
 
 			<div class="flex-col justify-center px-2">
 				<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">CATEGORY</p>
@@ -131,10 +131,10 @@
 
 		</div>
 
-		<div class="flex px-[7vw] py-[3vh] justify-start w-full flex-wrap">
+		<div class="flex px-[0px] py-[3vh] justify-center w-[100vw] h-full flex-wrap gap-4">
 			{% for videogame in videogames %}
-				<a class="w-1/5" href="{{path('app_videogames_show', {'id': videogame.id})}}">
-					<img src="{{asset(videogame.picture)}}" class="rounded-2xl" alt="">
+				<a class="w-1/6" href="{{path('app_videogames_show', {'id': videogame.id})}}">
+					<img src="{{asset(videogame.picture)}}" class="rounded-2xl " alt="">
 				</a>
 			{% endfor %}
 		</div>

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Symfony\Bundle\SecurityBundle\Security;
 use App\Entity\Cpulist;
 use App\Entity\Gpulist;
 use App\Entity\Myspecs;
@@ -18,20 +19,25 @@ class MyspecsType extends AbstractType
     {
         $builder
             ->add('user_id', EntityType::class, [
+                'attr' => ['style' => 'display:none'],
+                'label_attr' => ['style' => 'display:none;'],
                 'class' => User::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
             ->add('cpu_id', EntityType::class, [
                 'class' => Cpulist::class,
-'choice_label' => 'id',
+                'choice_label' => 'model',
+                'label' => 'Processor',
             ])
             ->add('gpu_id', EntityType::class, [
                 'class' => Gpulist::class,
-'choice_label' => 'id',
+                'choice_label' => 'model',
+                'label' => 'Graphic Card',
             ])
             ->add('ram_id', EntityType::class, [
                 'class' => Ramlist::class,
-'choice_label' => 'id',
+                'choice_label' => 'memory',
+                'label' => 'Memory Ram',
             ])
         ;
     }
