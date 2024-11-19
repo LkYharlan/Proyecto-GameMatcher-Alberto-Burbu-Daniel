@@ -5,14 +5,11 @@
 
 {% block body %}
 
-<div class="flex items-center bg-[url(../../public/assets/backgroundnew.jpg)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
+<div class="flex justify-center items-center bg-[url(../../public/assets/backgroundnew.jpg)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
 
-	<div class="bg-[#606060] rounded-3xl mx-auto mt-[16vh] h-[55vh] w-[650px]">
+	<div class="bg-[#606060] rounded-3xl h-[55vh] w-[650px]">
 
 		<form class="space-y-3 flex flex-col pt-[4vh] items-center" method="post">
-			{% if error %}
-				<div id="fontText" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-			{% endif %}
 
 			{% if app.user %}
 				<div class="mb-3">
@@ -45,7 +42,12 @@
 				</button>
 			</div>
 			<p id="secondaryText">Create account. Sign Up</p>
+		{% if error %}
+			<div id="alertText" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 		</div>
+	
+
 	</form>
 </div>
 

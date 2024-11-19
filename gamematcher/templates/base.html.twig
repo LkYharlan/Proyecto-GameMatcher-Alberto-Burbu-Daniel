@@ -27,9 +27,8 @@
 				<a href="{{path('landing')}}">
 					<h1 id="fontText" class="mx-8 text-4xl">GAMEMATCHER</h1>
 				</a>
-				<div class="flex text-xl ml-8 space-x-6 ">
-
-					{% if not app.user %}
+				{% if not app.user %}
+					<div class="flex text-xl mx-8 space-x-6 ">
 						<div>
 							<a id="fontText" href="{{path('app_login')}}">
 								<button>LOG IN</button>
@@ -41,8 +40,8 @@
 							</a>
 						</div>
 
-					{% else %}
-
+				{% else %}
+					<div class="flex text-xl ml-8 space-x-6 ">
 						<div class="flex ml-8 space-x-[5vw] items-center content-center">
 							<div>
 								<a id="searchGames" class="text-blue-600 text-3xl " href="{{path('searchgames')}}">
