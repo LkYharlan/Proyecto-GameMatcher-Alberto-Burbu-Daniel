@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="bg-[#606060] rounded-3xl space-y-[16px] space-x-5 flex  items-center mx-auto mt-[11vh] h-[600px] w-[1000px]">
+
+    
+<div class="bg-[#a7a7a7] w-[500px] h-full rounded-2xl flex content-center items-center justify-center">
+        <div id="secondaryText" class="flex flex-col h-[352px] w-[320px] space-y-6 justify-start items-center mb-[120px]">
+            <h1 id="fontText" class="text-[72px]">Contact Us</h1>
+            <p class="text-[20px]">Get in touch, we'd love to hear from you.</p>
+            <p class="text-[20px]">Check out our FAQ pages for answers to the most common questions.</p>
+            <a href="{{path('faq')}}"><button class="bg-blue-600 w-[160px] h-[30px] rounded-2xl self-center">Support FAQs</button></a>
+        </div>
+</div>
+
+        <div id="fontText" class="bg-[#3D3D3D] absolute flex flex-col right-[490px] space-y-10 h-[370px] w-[500px] mr-[500px] my-auto rounded-2xl justify-center items-center">
+            <img src="{{asset('assets/eneba-icon.svg')}}" alt="" class="h-[120px] w-[120px]">
+            <p class="text-[24px] text-center">Talk to a member of our Support Team</p>
+            <button class="bg-blue-600 w-[160px] h-[30px] rounded-2xl self-center">Contact Support</button>
+        </div>
+
+</div>
+
+
+{% endblock %}

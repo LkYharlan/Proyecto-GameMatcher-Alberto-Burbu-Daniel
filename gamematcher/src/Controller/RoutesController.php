@@ -40,5 +40,27 @@ class RoutesController extends AbstractController
         ]);
     }
 
+    #[Route('/about', name: 'about')]
+    public function about(VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
+    {
+        return $this->render('routes/about.html.twig', [
+        ]);
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
+    {
+        return $this->render('routes/contact.html.twig', [
+            
+        ]);
+    }
+
+    #[Route('/faq', name: 'faq')]
+    public function faq(VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
+    {
+        return $this->render('routes/faq.html.twig', [
+        ]);
+    }
+
 
 }

@@ -22,7 +22,9 @@
 
 {% else %}
 
+<div>
 
+    <a id="fontText" href="{{path('app_myspecs_new')}}" class="flex bg-yellow-300 w-full h-[2vw] self-center  content-center justify-center"><button>CREATE YOUR SPECS CARD</button></a>
 
     <div class="flex items-center bg-[url(../../public/assets/news_background.jpg)] bg-cover bg-center h-[30vh]">
         <div class="content-center absolute h-20 bg-black bg-opacity-60 w-full self-start ">
@@ -30,25 +32,34 @@
         </div>
     </div>
 
-    <a id="fontText" href="{{path('app_myspecs_new')}}" class="flex bg-yellow-300 w-[100px] h-[100px] self-center justify-center"><button>jeje</button></a>
+    <div class="flex flex-wrap justify-center gap-6 w-full h-screen  ">
 
-    <div class="flex items-center bg-[url(../../public/assets/concordnew.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
-        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
-            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">"No entiendo por qué no funcionó": El director del episodio de Concord para Secret Level habla de la cancelación.</p>
+        <div class="flex items-center bg-[url(../../public/assets/concordnew.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-36 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">"No entiendo por qué no funcionó": El director del episodio de Concord para Secret Level habla de la cancelación.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="flex items-center bg-[url(../../public/assets/eanews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
-        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
-            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">El director ejecutivo de Electronic Arts, Andrew Wilson, está en las quinielas para dirigir Disney.</p>
+        <div class="flex items-center bg-[url(../../public/assets/eanews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">El director ejecutivo de Electronic Arts, Andrew Wilson, está en las quinielas para dirigir Disney.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[900px] mx-auto my-[48px] rounded-2xl border-">
-        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[898px] self-end rounded-b-2xl ">
-            <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+        <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+            </div>
         </div>
+
+        <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+	        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+		        <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+	        </div>
+        </div>
+
     </div>
+</div>
 
 
 {% endif %}
