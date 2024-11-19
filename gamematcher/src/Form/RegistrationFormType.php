@@ -18,7 +18,14 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username')
+            ->add('username', TextType::class, [
+                'constraints' => [
+                    new Length([
+                        'max' => 15,
+                        'maxMessage' => 'Your username cannot have more than {{ limit }} characters.',
+                    ]),
+                ],
+            ])
             ->add('email')
             ->add('plainPassword', PasswordType::class, [
                 
@@ -36,6 +43,7 @@ class RegistrationFormType extends AbstractType
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
+                        'maxMessage' => 'Your password has more than {{ limit }} characters',
                     ]),
                 ],
                 ])

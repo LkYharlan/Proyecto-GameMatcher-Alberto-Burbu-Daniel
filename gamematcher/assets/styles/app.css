@@ -59,3 +59,16 @@
     font-style: normal;
     color: #ED4956;
     }
+
+#alert ul li{
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ED4956;
+}
+
+#registration_form_agreeTerms {
+    margin-top: 5px;
+    display: block;
+    width: fit-content;
+}

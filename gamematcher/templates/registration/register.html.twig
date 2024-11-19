@@ -13,12 +13,12 @@
 		<div class="bg-white h-[1px] w-[400px] my-4"></div>
 
 		<div class="flex">
-			{{ form_errors(registrationForm) }}
 			{{ form_start(registrationForm) }}
+			{{ form_errors(registrationForm) }}
 			<div class="space-y-4">
 				{% for field in registrationForm %}
 					{% if field.vars.name is not same as '_token' %}
-						<div>
+						<div id="alert">
 							{{ form_label(field, null, {
                         'label_attr': {
                         'id': 'fontText',
