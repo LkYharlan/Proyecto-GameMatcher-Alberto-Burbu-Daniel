@@ -10,9 +10,14 @@
 
     <div class="flex items-center bg-[url(../../public/assets/pc-gaming.png)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
 
-        <div id="fontText" class="w-full h-full bg-black bg-opacity-60 flex-col content-center"> 
-            <p class="text-[80px] text-center mx-[20vw] leading-none">¿QUIERES SABER QUÉ JUEGOS PUEDES JUGAR EN TU ORDENADOR?</p>
-            <p class="text-[32px] text-center mx-[20vw] pt-10">RELLENA NUESTRO FORMULARIO CON TU HARDWARE Y DESCÚBRELO ;)</p>
+        <div id="fontText" class="w-full h-full bg-black bg-opacity-60 flex flex-col justify-center items-center"> 
+            <p class="text-[80px] text-center mx-[10vw] leading-none tracking-wide">Would you like to know which games you can enjoy without worrying about hardware?</p>
+            <p class="text-[32px] text-center mx-[20vw] pt-10 tracking-wide">Play, stay updated, and stay informed: GameMatcher helps you find games for your PC and keeps you up to date with gaming news</p>
+            <div class="flex justify-center items-center bg-blue-600 w-[228px] h-[56px] px-4 mt-4 rounded-2xl">
+                <a id="fontText" class="text-[32px] tracking-wide" href="{{path('app_register')}}">
+                    <button>Start Now</button>
+                </a>
+            </div>
         </div>
 
         <div id="footerText" class="content-center absolute h-10 bg-black w-full self-end ">
