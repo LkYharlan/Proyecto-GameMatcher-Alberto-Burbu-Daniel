@@ -38,18 +38,18 @@
         {% endif %}
         {% endfor %}
 		<div class="flex w-[1280px] h-[440px] mx-auto backdrop-blur-lg space-x-[24px]">
-			<div class="h-full w-[920px] bg-gray-500 flex">
+			<div class="h-full w-[846px] bg-gray-500 flex">
 				<img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
-				<div id="fontText" class=" absolute flex w-[79px] h-[100px] bg-gradient-to-b from-[#4A6EFF] to-[#243785] justify-center right-[416px] text-[36px]">
+				<div id="fontText" class=" absolute flex w-[79px] h-[80px] bg-gradient-to-b from-[#4A6EFF] to-[#243785] justify-center right-[452px] text-[36px]">
 					<p class="self-center">{{videogame.review.score}}</p>
 				</div>
 
-				<div class="self-center w-[781px] h-[360px] mx-[16px]">
+				<div class="self-center w-[781px] h-[400px] mx-[16px]">
 					<div class="flex w-[573px] pr-[16px] justify-between">
 						<h1 id="fontText" class="text-5xl tracking-wide">{{videogame.name}}</h1>
 					</div>
-					<div class="border-b w-full border-[#FFFFFF] my-[24px]"></div>
-					<p id="secondaryText" class="text-[24px] leading-tight">
+					<div class="border-b w-[500px] border-[#FFFFFF] my-[24px]"></div>
+					<p id="secondaryText" class="w-[510px] text-[24px] leading-tight">
 						{% for elem in reviews %}
 							{% if elem.videogameid.id is same as videogame.id %}
 								{{videogame.review.description}}
@@ -60,7 +60,7 @@
 
 			</div>
 
-			<div class="flex flex-col justify-start items-center h-full w-[360px] p-[24px] space-y-[24px] bg-gray-500">
+			<div class="flex flex-col justify-start items-center h-full w-[410px] p-[24px] space-y-[24px] bg-gray-500">
 				<div class="flex justify-center items-center h-[60px] w-[201px]">
 					<h2 id="fontText" class="text-5xl">SPECS</h2>
 				</div>
