@@ -26,11 +26,10 @@
     </div>
 
 {% else %}
-
 <div>
-
-    <a id="fontText" href="{{path('app_myspecs_new')}}" class="flex bg-yellow-300 w-full h-[2vw] self-center  content-center justify-center"><button>CREATE YOUR SPECS CARD</button></a>
-
+    {% if not app.user.myspecs %}
+    <a id="fontText" href="{{path('app_myspecs_new')}}" class="flex bg-[#dab511] w-full h-[2vw] self-center  content-center justify-center"><button>CREATE YOUR SPECS CARD</button></a>
+    {% endif %}
     <div class="flex items-center bg-[url(../../public/assets/news_background.jpg)] bg-cover bg-center h-[30vh]">
         <div class="content-center absolute h-20 bg-black bg-opacity-60 w-full self-start ">
             <p id="fontText" class="flex justify-center text-[50px] align-middle">NEWS</p>

@@ -11,8 +11,12 @@
 
 	<div class="bg-[#606060] rounded-3xl space-y-[16px] flex-col mx-auto mt-[3vh] h-[902px] w-[846px]">
 		<div class="flex h-[250px] w-full bg-black rounded-t-3xl">
-			<div class="flex-col h-[200px] w-[200px] flex ml-[28px] self-center border border-[#6C6C6C] rounded-full">
-				<img src="{{asset(app.user.picture)}}" class="rounded-full border border-[#6C6C6C] " alt="">
+			<div class="flex-col h-[200px] w-[200px] flex ml-[28px] self-center rounded-full">
+				{% if app.user.picture %}
+					<img src="{{asset(app.user.picture)}}" class="h-[200px] w-[200px] rounded-full border border-[#6C6C6C]" alt="User Picture">
+				{% else %}
+					<img src="{{asset('assets/user-circle.svg')}}" class="h-[200px] w-[200px] rounded-full" alt="User Picture">
+				{% endif %}
 				<div class="content-end">
 					{{form_widget(form.picture, {'attr': {'class': 'w-[200px] text-center rounded mr-'}})}}
 				</div>

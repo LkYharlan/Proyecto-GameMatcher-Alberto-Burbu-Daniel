@@ -5,63 +5,69 @@
 
 {% block body %}
 	{# <h1>User</h1>
-	
-	    <table class="table">
-	        <tbody>
-	            <tr>
-	                <th>Id</th>
-	                <td>{{ user.id }}</td>
-	            </tr>
-	            <tr>
-	                <th>Email</th>
-	                <td>{{ user.email }}</td>
-	            </tr>
-	            <tr>
-	                <th>Roles</th>
-	                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-	            </tr>
-	            <tr>
-	                <th>Password</th>
-	                <td>{{ user.password }}</td>
-	            </tr>
-	            <tr>
-	                <th>Username</th>
-	                <td>{{ user.username }}</td>
-	            </tr>
-	            <tr>
-	                <th>Firstname</th>
-	                <td>{{ user.firstname }}</td>
-	            </tr>
-	            <tr>
-	                <th>Lastname</th>
-	                <td>{{ user.lastname }}</td>
-	            </tr>
-	            <tr>
-	                <th>Aboutme</th>
-	                <td>{{ user.aboutme }}</td>
-	            </tr>
-	            <tr>
-	                <th>Picture</th>
-	                <td>{{ user.picture }}</td>
-	            </tr>
-	        </tbody>
-	    </table>
-	
-	    <a href="{{ path('app_user_index') }}">back to list</a>
-	
-	    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-	
-	    {{ include('user/_delete_form.html.twig') }} #}
-
+		
+		    <table class="table">
+		        <tbody>
+		            <tr>
+		                <th>Id</th>
+		                <td>{{ user.id }}</td>
+		            </tr>
+		            <tr>
+		                <th>Email</th>
+		                <td>{{ user.email }}</td>
+		            </tr>
+		            <tr>
+		                <th>Roles</th>
+		                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+		            </tr>
+		            <tr>
+		                <th>Password</th>
+		                <td>{{ user.password }}</td>
+		            </tr>
+		            <tr>
+		                <th>Username</th>
+		                <td>{{ user.username }}</td>
+		            </tr>
+		            <tr>
+		                <th>Firstname</th>
+		                <td>{{ user.firstname }}</td>
+		            </tr>
+		            <tr>
+		                <th>Lastname</th>
+		                <td>{{ user.lastname }}</td>
+		            </tr>
+		            <tr>
+		                <th>Aboutme</th>
+		                <td>{{ user.aboutme }}</td>
+		            </tr>
+		            <tr>
+		                <th>Picture</th>
+		                <td>{{ user.picture }}</td>
+		            </tr>
+		        </tbody>
+		    </table>
+		
+		    <a href="{{ path('app_user_index') }}">back to list</a>
+		
+		    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+		
+		    {{ include('user/_delete_form.html.twig') }} #}
+	{# <img src="{{asset(app.user.picture)}}" class="rounded-full border border-[#6C6C6C] " alt=""> #}
 
 	<div class="bg-[#606060] rounded-3xl space-y-[16px] flex-col mx-auto mt-[3vh] h-[902px] w-[846px]">
 		<div class="flex h-[250px] w-full bg-[#2573EB] rounded-t-3xl">
-			<div class="flex h-[200px] w-[200px] ml-[28px] self-center"><img src="{{asset(app.user.picture)}}" class="rounded-full border border-[#6C6C6C] " alt=""></div>
+			<div class="flex h-[200px] w-[200px] ml-[28px] self-center">
+				{% if app.user.picture %}
+					<img src="{{asset(app.user.picture)}}" class="h-[200px] w-[200px] rounded-full border border-[#6C6C6C]" alt="User Picture">
+				{% else %}
+					<img src="{{asset('assets/user-circle.svg')}}" class="h-[200px] w-[200px] rounded-full border-[#6C6C6C]" alt="User Picture">
+				{% endif %}
+			</div>
 			<p id="fontText" class="self-center text-4xl pl-5">{{ app.user.username }}</p>
-            <div class="self-end">		
-					<a href="{{path('app_user_edit', {'id': app.user.id})}}">
-						<button type="submit" id="secondaryText" class="w-[80px] h-[32px] ml-[316px] mb-[26px] bg-[#6C6C6C] rounded-lg">EDIT</button>
-					</a>
+			<div class="self-end">
+				<a href="{{path('app_user_edit', {'id': app.user.id})}}">
+					<button type="submit" id="secondaryText" class="w-[80px] h-[32px] ml-[316px] mb-[26px] bg-[#6C6C6C] rounded-lg">EDIT</button>
+				</a>
 			</div>
 		</div>
 
@@ -78,17 +84,17 @@
 					<div class="">
 						<div class="flex">
 							<div class="flex-col m-[4px]">
-								<p id="fontText">FIRST NAME</p>
-								<p id="selectText" class="w-[172px] h-[32px] rounded">{{app.user.firstname}}</p>
+								<p id="fontText" class="flex justify-center">FIRST NAME</p>
+								<p id="secondaryText" class="w-[172px] h-[32px] rounded flex justify-center">{{app.user.firstname}}</p>
 							</div>
 							<div class="flex-col m-[4px]">
-								<p id="fontText">LAST NAME</p>
-								<p id="selectText" class="w-[172px] h-[32px] rounded">{{app.user.lastname}}</p>
+								<p id="fontText" class="flex justify-center">LAST NAME</p>
+								<p id="secondaryText" class="w-[172px] h-[32px] rounded flex justify-center">{{app.user.lastname}}</p>
 							</div>
 						</div>
-						<div class="m-[4px] mt-4">
-							<p id="fontText">EMAIL</p>
-							<p id="selectText" class="w-[172px] h-[32px] rounded">{{app.user.email}}</p>
+						<div class="m-[4px] flex flex-col items-center mt-4">
+							<p id="fontText" class="flex justify-center">EMAIL</p>
+							<p id="secondaryText" class="w-[172px] h-[32px] rounded flex justify-center">{{app.user.email}}</p>
 						</div>
 						<div class="border-b w-[354px] border-white my-[32px]"></div>
 						<div class="flex m-auto justify-evenly">
@@ -138,16 +144,22 @@
 					<div class="">
 						<div class="flex-col m-auto">
 							<div class="flex-col m-[4px]">
-								<p id="fontText">CPU</p>
-								<p id="selectText">{{user.myspecs.cpuid.model}}</p>
-							</div>
-							<div class="flex-col m-[4px]">
-								<p id="fontText">GPU</p>
-								<p id="selectText">{{user.myspecs.gpuid.model}}</p>
+								<p id="fontText" class="flex justify-center">CPU</p>
+								{% if app.user.myspecs %}
+								<p id="secondaryText" class="flex justify-center">{{user.myspecs.cpuid.model}}</p>
+								{% endif %}
 							</div>
 							<div div class="flex-col m-[4px]">
-								<p id="fontText">RAM</p>
-								<p id="selectText" class="">{{user.myspecs.ramid.memory}}</p>
+								<p id="fontText" class="flex justify-center">RAM</p>
+								{% if app.user.myspecs %}
+								<p id="secondaryText" class="flex justify-center">{{user.myspecs.ramid.memory}}</p>
+								{% endif %}
+							</div>
+							<div class="flex-col m-[4px]">
+								<p id="fontText" class="flex justify-center">GPU</p>
+								{% if app.user.myspecs %}
+								<p id="secondaryText" class="flex justify-center">{{user.myspecs.gpuid.model}}</p>
+								{% endif %}
 							</div>
 						</div>
 						<div class="border-b w-[234px] border-white my-[32px]"></div>
@@ -158,7 +170,6 @@
 		</div>
 
 	</div>
-
 
 
 {% endblock %}

@@ -4,33 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	{# <h1>Videogames</h1>
-	
-	    <table class="table">
-	        <tbody>
-	            <tr>
-	                <th>Id</th>
-	                <td>{{ videogame.id }}</td>
-	            </tr>
-	            <tr>
-	                <th>Platform</th>
-	                <td>{{ videogame.platform }}</td>
-	            </tr>
-	            <tr>
-	                <th>Name</th>
-	                <td>{{ videogame.name }}</td>
-	            </tr>
-	        </tbody>
-	    </table>
-	
-	    <a href="{{ path('app_videogames_index') }}">back to list</a>
-	
-	    <a href="{{ path('app_videogames_edit', {'id': videogame.id}) }}">edit</a>
-	
-	    {{ include('videogames/_delete_form.html.twig') }} #}
 
-
-	<div class="flex-col w-[1500px] h-full m-auto py-[25px] px-[110px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
+<div class="flex-col w-[1500px] h-full m-auto py-[25px] px-[110px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
         
         {% for elem in reviews %}
         {% if elem.videogameid.id is same as videogame.id %}
@@ -38,18 +13,18 @@
         {% endif %}
         {% endfor %}
 		<div class="flex w-[1280px] h-[440px] mx-auto backdrop-blur-lg space-x-[24px]">
-			<div class="h-full w-[920px] bg-gray-500 flex">
+			<div class="h-full w-[846px] bg-gray-500 flex">
 				<img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
-				<div id="fontText" class=" absolute flex w-[79px] h-[100px] bg-gradient-to-b from-[#4A6EFF] to-[#243785] justify-center right-[416px] text-[36px]">
+				<div id="fontText" class=" absolute flex w-[79px] h-[80px] bg-gradient-to-b from-[#4A6EFF] to-[#243785] justify-center right-[452px] text-[36px]">
 					<p class="self-center">{{videogame.review.score}}</p>
 				</div>
 
-				<div class="self-center w-[781px] h-[360px] mx-[16px]">
+				<div class="self-center w-[781px] h-[400px] mx-[16px]">
 					<div class="flex w-[573px] pr-[16px] justify-between">
 						<h1 id="fontText" class="text-5xl tracking-wide">{{videogame.name}}</h1>
 					</div>
-					<div class="border-b w-full border-[#FFFFFF] my-[24px]"></div>
-					<p id="secondaryText" class="text-[24px] leading-tight">
+					<div class="border-b w-[500px] border-[#FFFFFF] my-[24px]"></div>
+					<p id="secondaryText" class="w-[510px] text-[24px] leading-tight">
 						{% for elem in reviews %}
 							{% if elem.videogameid.id is same as videogame.id %}
 								{{videogame.review.description}}
@@ -60,7 +35,7 @@
 
 			</div>
 
-			<div class="flex flex-col justify-start items-center h-full w-[360px] p-[24px] space-y-[24px] bg-gray-500">
+			<div class="flex flex-col justify-start items-center h-full w-[410px] p-[24px] space-y-[24px] bg-gray-500">
 				<div class="flex justify-center items-center h-[60px] w-[201px]">
 					<h2 id="fontText" class="text-5xl">SPECS</h2>
 				</div>
@@ -121,12 +96,17 @@
 
 
 		<div class="flex space-x-[24px]">
+			<div class="flex-col w-[900px]">
 			{% for elem in comments %}
 				{% if elem.videogameid.id is same as videogame.id %}
-					<div class="h-[402px] w-[996px] p-[24px] bg-gray-500">
+					<div class="h-[402px] w-[846px] p-[24px] bg-gray-500 mb-6">
 						<div class="flex">
 							<div class="flex items-center space-x-[24px]">
+								{% if elem.userid.picture %}
 								<img src="{{asset(elem.userid.picture)}}" class="h-[100px] w-[100px] rounded-full border border-[#6C6C6C]" alt="User Picture">
+								{% else %}
+								<img src="{{asset('assets/user-circle.svg')}}" class="h-[100px] w-[100px] rounded-full border-[#6C6C6C]" alt="User Picture">
+								{% endif %}
 								<div id="secondaryText" class="text-[32px]">{{elem.userid.username}}</div>
 							</div>
 							<div class="flex justify-end items-center w-full h-[100px] space-x-[16px]">
@@ -149,7 +129,7 @@
 
                 {% else %}
 
-                <div class="h-[402px] w-[996px] p-[24px] bg-gray-500">
+                <div class="h-[402px] w-[846px] p-[24px] bg-gray-500">
 						<div id="secondaryText" class="flex text-[2]">This could be you!</div>
 						<div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
 						<div id="secondaryText" class="text-[24px] leading-tight">Insert your first comment!</div>
@@ -157,6 +137,7 @@
 
 				{% endif %}
 			{% endfor %}
+			</div>
 			<div class="flex flex-col justify-center items-center h-[168px] w-[489px] bg-gray-500">
 				<div id="secondaryText" class="text-[32px]">GENRE</div>
 				<div class="border-b w-[388px] my-[24px] border-[#FFFFFF] "></div>
@@ -171,13 +152,14 @@
 		</div>
 
 		<div class="border-b w-[844px] border-[#FFFFFF] pt-[39px]"></div>
-
+		
 		<div>
 			<p id="secondaryText" class="">+ Add Comment</p>
 		</div>
 
 
 	</div>
+
 
 
 {% endblock %}

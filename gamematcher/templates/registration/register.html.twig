@@ -4,21 +4,22 @@
 {% endblock %}
 
 {% block body %}
-<div class="flex items-center bg-[url(../../public/assets/backgroundnew.jpg)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
 
-	<div class="bg-[#606060] rounded-3xl flex-col mx-auto mt-[3vh] justify-items-center h-[780px] w-[650px]">
+<div class="flex justify-center items-center bg-[url(../../public/assets/backgroundnew.jpg)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
+
+	<div class="bg-[#606060] rounded-3xl flex-col justify-items-center h-[780px] w-[650px]">
 		<div class="flex pt-[40px] ">
 			<p id="fontText" class="text-6xl">REGISTER</p>
 		</div>
 		<div class="bg-white h-[1px] w-[400px] my-4"></div>
 
 		<div class="flex">
-			{{ form_errors(registrationForm) }}
 			{{ form_start(registrationForm) }}
+			{{ form_errors(registrationForm) }}
 			<div class="space-y-4">
 				{% for field in registrationForm %}
 					{% if field.vars.name is not same as '_token' %}
-						<div>
+						<div id="alert">
 							{{ form_label(field, null, {
                         'label_attr': {
                         'id': 'fontText',
@@ -50,5 +51,7 @@
 		{{ form_end(registrationForm) }}
 	</div>
 </div>
+
+
 
 {% endblock %}

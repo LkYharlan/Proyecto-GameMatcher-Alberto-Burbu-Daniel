@@ -7,10 +7,10 @@
 {% block body %}
 	<div class="border-t border-b border-[#6A6A6A] h-full">
 
-		<div class="">
-			<button class="w-[16.7vw] h-[45px] border-r border-[rgb(106,106,106)] mr-0 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-				<p id="fontText">CONFIGURATIONS</p>
-			</button>
+		<div>
+			<div class="w-full h-[45px] border-[rgb(106,106,106)] mr-0 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+				
+			</div>
 		</div>
 
 
@@ -41,23 +41,13 @@
 				</div>
 
 				<div id="secondaryText" class="secondaryText">
-					<input type="checkbox" id="arcade" name="arcade_category">
-					<label for="arcade">Arcade</label>
-				</div>
-
-				<div id="secondaryText" class="secondaryText">
 					<input type="checkbox" id="cooperative" name="cooperative_category">
 					<label for="cooperative">Cooperative</label>
 				</div>
 
 				<div id="secondaryText" class="secondaryText">
-					<input type="checkbox" id="first_person_shooter" name="first_person_category">
-					<label for="first_person">First Person Shooter</label>
-				</div>
-
-				<div id="secondaryText" class="secondaryText">
-					<input type="checkbox" id="third_person_shooter" name="third_person_shooter_category">
-					<label for="third_person_shooter">Third Person Shooter</label>
+					<input type="checkbox" id="fps" name="fps_category">
+					<label for="fps">FPS</label>
 				</div>
 
 				<div id="secondaryText" class="secondaryText">
@@ -66,13 +56,38 @@
 				</div>
 
 				<div id="secondaryText" class="secondaryText">
-					<input type="checkbox" id="indie" name="indie_category">
-					<label for="indie">Indie</label>
+					<input type="checkbox" id="mmorpg" name="mmorpg_category">
+					<label for="mmorpg">MMORPG</label>
 				</div>
 
 				<div id="secondaryText" class="secondaryText">
-					<input type="checkbox" id="multiplayer" name="multiplayer_category">
-					<label for="multiplayer">Multiplayer</label>
+					<input type="checkbox" id="puzzle" name="puzzle_category">
+					<label for="puzzle">Puzzle</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="racing" name="racing_category">
+					<label for="racing">Racing</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="rpg" name="rpg_category">
+					<label for="rpg">RPG</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="sports" name="sports_category">
+					<label for="sports">Sports</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="strategy" name="strategy_category">
+					<label for="strategy">Strategy</label>
+				</div>
+
+				<div id="secondaryText" class="secondaryText">
+					<input type="checkbox" id="survival" name="survival_category">
+					<label for="survival">Survival</label>
 				</div>
 			</div>
 
@@ -84,15 +99,17 @@
 				<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">SPECS</p>
 			</div>
 
+			<form action="{{path('searchgames')}}" method="post">
+
 			<div class="mx-[2vw] space-y-4">
 				<div id="selectText" class="secondaryText pt-3">
 					<p id="secondaryText">CPU</p>
 					<select name="cpu" id="cpu" class="rounded-2xl w-[10vw]">
 						{% for elem in cpu %}
 							{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
-								<option value="" selected>{{elem.model}}</option>
+								<option selected>{{elem.model}}</option>
 							{% else %}
-								<option value="">{{elem.model}}</option>
+								<option>{{elem.model}}</option>
 							{% endif %}
 						{% endfor %}
 					</select>
@@ -103,9 +120,9 @@
 					<select name="ram" id="ram" class="rounded-2xl w-[10vw]">
 						{% for elem in ram %}
 							{% if elem.id is same as(app.user.myspecs.ramid.id) %}
-								<option value="" selected>{{elem.memory}}</option>
+								<option selected>{{elem.memory}}</option>
 							{% else %}
-								<option value="">{{elem.memory}}</option>
+								<option>{{elem.memory}}</option>
 							{% endif %}
 						{% endfor %}
 					</select>
@@ -116,14 +133,17 @@
 					<select name="gpu" id="gpu" class="rounded-2xl w-[10vw]">
 						{% for elem in gpu %}
 							{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
-								<option value="" selected>{{elem.model}}</option>
+								<option selected>{{elem.model}}</option>
 							{% else %}
-								<option value="">{{elem.model}}</option>
+								<option>{{elem.model}}</option>
 							{% endif %}
 						{% endfor %}
 					</select>
 				</div>
+				<a href="{{path('searchgames')}}" id="secondaryText"><button>Pepebutton</button></a>
 			</div>
+			</form>
+
 
 			<div class="flex-col justify-center px-2 pt-7">
 				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
@@ -133,11 +153,15 @@
 
 		<div class="flex px-[0px] py-[3vh] justify-center w-[100vw] h-full flex-wrap gap-4">
 			{% for videogame in videogames %}
+				{# {% if videogame.ramrequirement.ramscore <= app.user.myspecs.ramid.ramscore and videogame.cpurequirement.cpuscore <= app.user.myspecs.cpuid.cpuscore and videogame.gpurequirement.gpuscore <= app.user.myspecs.gpuid.gpuscore %} #}
 				<a class="w-1/6" href="{{path('app_videogames_show', {'id': videogame.id})}}">
 					<img src="{{asset(videogame.picture)}}" class="rounded-2xl " alt="">
 				</a>
+				{# {% endif %} #}
 			{% endfor %}
 		</div>
 	</div>
+
+	{{dump(videogames)}}
 
 {% endblock %}
