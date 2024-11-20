@@ -14,6 +14,9 @@ use App\Repository\GpulistRepository;
 use App\Entity\Ramlist;
 use App\Form\RamlistType;
 use App\Repository\RamlistRepository;
+use App\Entity\Genre;
+use App\Form\GenreType;
+use App\Repository\GenreRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,23 +33,37 @@ class RoutesController extends AbstractController
     }
 
     #[Route('/searchgames', name: 'searchgames')]
-    public function searchgames(Request $request, VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
+    public function searchgames(Request $request, GenreRepository $genreRepository, VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
     {
         $displayedGames = [];
 
-        if ($request->isMethod('POST')){
-        $selectedGpuScore = $gpulistRepository->findBy((['model' => $request->get('gpu')]))[0]->getGpuscore();
-        $selectedCpuScore = $cpulistRepository->findBy((['model' => $request->get('cpu')]))[0]->getCpuscore();
-        $selectedRamScore = $ramlistRepository->findBy((['memory' => $request->get('ram')]))[0]->getRamscore();
-    
-        $videogames = $videogamesRepository->findAll();
-        
+        if ($request->isMethod('POST')) {
+            $selectedGpuScore = $gpulistRepository->findBy((['model' => $request->get('gpu')]))[0]->getGpuscore();
+            $selectedCpuScore = $cpulistRepository->findBy((['model' => $request->get('cpu')]))[0]->getCpuscore();
+            $selectedRamScore = $ramlistRepository->findBy((['memory' => $request->get('ram')]))[0]->getRamscore();
 
-        foreach ($videogames as $videogame) {
-        if ($videogame->getCpurequirement()->getCpuscore() <= $selectedCpuScore && $videogame->getGpurequirement()->getGpuscore() <= $selectedGpuScore && $videogame->getRamrequirement()->getRamscore() <= $selectedRamScore){
-            $displayedGames[] = $videogame;
-        }
-        }
+
+            $genres = $genreRepository->findAll();
+            $videogames = $videogamesRepository->findAll();
+
+            foreach ($videogames as $videogame) {
+                if ($videogame->getCpurequirement()->getCpuscore() <= $selectedCpuScore && $videogame->getGpurequirement()->getGpuscore() <= $selectedGpuScore && $videogame->getRamrequirement()->getRamscore() <= $selectedRamScore) {
+
+                    $displayedGames[] = $videogame;
+                }
+            }
+            $finalGames = [];
+
+            if (!is_null($request->get('genre'))) {
+                foreach ($displayedGames as $videogame) {
+                    foreach ($videogame->getGenreId()->toArray() as $genre) {
+                        if (in_array(strtolower($genre->getCategory()), $request->get('genre'))) {
+                            $finalGames[] = $videogame;
+                        }
+                    }
+                }
+            }
+            $displayedGames = !empty($finalGames) ? $finalGames : $displayedGames;
 
         } else {
             $userSpecs = $this->getUser()->getMyspecs();
@@ -54,13 +71,12 @@ class RoutesController extends AbstractController
             $userGpu = $userSpecs->getGpuId()->getGpuscore();
             $userRam = $userSpecs->getRamId()->getRamscore();
             $videogames = $videogamesRepository->findAll();
-        
+
             foreach ($videogames as $videogame) {
                 if ($videogame->getCpurequirement()->getCpuscore() <= $userCpu && $videogame->getGpurequirement()->getGpuscore() <= $userGpu && $videogame->getRamrequirement()->getRamscore() <= $userRam) {
                     $displayedGames[] = $videogame;
                 }
             }
-
         }
         return $this->render('routes/searchgames.html.twig', [
             'controller_name' => 'RoutesController',
@@ -69,8 +85,8 @@ class RoutesController extends AbstractController
             'gpu' => $gpulistRepository->findAll(),
             'ram' => $ramlistRepository->findAll(),
         ]);
-        }
-        
+    }
+
 
     #[Route('/about', name: 'about')]
     public function about(VideogamesRepository $videogamesRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response

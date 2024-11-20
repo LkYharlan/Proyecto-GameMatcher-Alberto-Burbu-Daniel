@@ -108,13 +108,20 @@
 								<p id="fontText">CPU</p>
 								<div id="selectText">
 									<select name="cpu" id="cpu" class="rounded w-[189px] h-[32px]">
-										{% for elem in cpu %}
-											{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
-												<option value="" selected>{{elem.model}}</option>
-											{% else %}
+										<option selected hidden>Choose your CPU</option>
+										{% if app.user.myspecs %}
+											{% for elem in cpu %}
+												{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
+													<option value="" selected>{{elem.model}}</option>
+												{% else %}
+													<option value="">{{elem.model}}</option>
+												{% endif %}
+											{% endfor %}
+										{% else %}
+											{% for elem in cpu %}
 												<option value="">{{elem.model}}</option>
-											{% endif %}
-										{% endfor %}
+											{% endfor %}
+										{% endif %}
 									</select>
 								</div>
 							</div>
@@ -122,13 +129,20 @@
 								<p id="fontText">GPU</p>
 								<div id="selectText">
 									<select name="gpu" id="gpu" class="rounded w-[189px] h-[32px]">
-										{% for elem in gpu %}
-											{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
-												<option value="" selected>{{elem.model}}</option>
-											{% else %}
-												<option value="">{{elem.model}}</option>
-											{% endif %}
-										{% endfor %}
+										<option selected hidden>Choose your GPU</option>
+										{% if app.user.myspecs %}
+											{% for elem in gpu %}
+												{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
+													<option value="" selected>{{elem.model}}</option>
+												{% else %}
+													<option value="">{{elem.model}}</option>
+												{% endif %}
+											{% endfor %}
+										{% else %}
+											{% for elem in gpu %}
+												<option value="none" >{{elem.model}}</option>
+											{% endfor %}
+										{% endif %}
 									</select>
 								</div>
 							</div>
@@ -136,13 +150,20 @@
 								<p id="fontText">RAM</p>
 								<div id="selectText">
 									<select name="ram" id="ram" class="rounded w-[189px] h-[32px]">
-										{% for elem in ram %}
-											{% if elem.id is same as(app.user.myspecs.ramid.id) %}
-												<option value="" selected>{{elem.memory}}</option>
-											{% else %}
+									<option selected hidden>Choose your RAM</option>
+										{% if app.user.myspecs %}
+											{% for elem in ram %}
+												{% if elem.id is same as(app.user.myspecs.ramid.id) %}
+													<option value="" selected>{{elem.memory}}</option>
+												{% else %}
+													<option value="">{{elem.memory}}</option>
+												{% endif %}
+											{% endfor %}
+										{% else %}
+											{% for elem in ram %}
 												<option value="">{{elem.memory}}</option>
-											{% endif %}
-										{% endfor %}
+											{% endfor %}
+										{% endif %}
 									</select>
 								</div>
 							</div>
