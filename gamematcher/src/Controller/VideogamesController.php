@@ -63,9 +63,11 @@ class VideogamesController extends AbstractController
     #[Route('/{id}', name: 'app_videogames_show', methods: ['GET'])]
     public function show(Videogames $videogame, CommentsRepository $commentsRepository, GenreRepository $genreRepository, Reviewrepository $reviewRepository, GpulistRepository $gpulistRepository,  CpulistRepository $cpulistRepository, RamlistRepository $ramlistRepository): Response
     {
+        $comments = $commentsRepository->findBy(['videogame_id' => $videogame]);
+
         return $this->render('videogames/show.html.twig', [
             'videogame' => $videogame,
-            'comments' => $commentsRepository->findAll(),
+            'comments' => $comments,
             'reviews' => $reviewRepository->findAll(),
             'cpu' => $cpulistRepository->findAll(),
             'gpu' => $gpulistRepository->findAll(),
