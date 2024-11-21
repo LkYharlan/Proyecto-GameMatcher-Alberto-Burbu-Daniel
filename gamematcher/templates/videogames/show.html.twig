@@ -5,13 +5,13 @@
 
 {% block body %}
 
-<div class="flex-col w-[1500px] h-full m-auto py-[25px] px-[110px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
-        
-        {% for elem in reviews %}
-        {% if elem.videogameid.id is same as videogame.id %}
-		<iframe src="{{elem.trailer}}" frameborder="0" height="720" width="1280px" class="m-auto"></iframe>
-        {% endif %}
-        {% endfor %}
+	<div class="flex-col w-[1500px] h-full m-auto py-[25px] px-[110px] space-y-[25px] bg-gray-600 backdrop-blur-lg shadow-[0px_0px_15px_rgba(0,0,0,0.1)]  shadow-blue-600">
+
+		{% for elem in reviews %}
+			{% if elem.videogameid.id is same as videogame.id %}
+				<iframe src="{{elem.trailer}}" frameborder="0" height="720" width="1280px" class="m-auto"></iframe>
+			{% endif %}
+		{% endfor %}
 		<div class="flex w-[1280px] h-[440px] mx-auto backdrop-blur-lg space-x-[24px]">
 			<div class="h-full w-[846px] bg-gray-500 flex">
 				<img src="{{asset(videogame.picture)}}" alt="" class="w-[296px] h-[408px] ml-[16px] self-center rounded-xl">
@@ -97,69 +97,64 @@
 
 		<div class="flex space-x-[24px]">
 			<div class="flex-col w-[900px]">
-			{% for elem in comments %}
-				{% if elem.videogameid.id is same as videogame.id %}
-					<div class="h-[402px] w-[846px] p-[24px] bg-gray-500 mb-6">
-						<div class="flex">
-							<div class="flex items-center space-x-[24px]">
-								{% if elem.userid.picture %}
-								<img src="{{asset(elem.userid.picture)}}" class="h-[100px] w-[100px] rounded-full border border-[#6C6C6C]" alt="User Picture">
-								{% else %}
-								<img src="{{asset('assets/user-circle.svg')}}" class="h-[100px] w-[100px] rounded-full border-[#6C6C6C]" alt="User Picture">
-								{% endif %}
-								<div id="secondaryText" class="text-[32px]">{{elem.userid.username}}</div>
-							</div>
-							<div class="flex justify-end items-center w-full h-[100px] space-x-[16px]">
-								<div class="flex flex-col justify-end items-center space-y-[8px]">
-									<h3 id="fontText" class="text-base">CPU</h3>
-									<h3 id="fontText" class="text-base">RAM</h3>
-									<h3 id="fontText" class="text-base">GPU</h3>
+				{% if comments %}
+				{% for elem in comments %}
+					{% if elem.videogameid is defined and elem.videogameid.id is same as videogame.id %}
+						<div class="h-[402px] w-[846px] p-[24px] bg-gray-500 mb-6">
+							<div class="flex">
+								<div class="flex items-center space-x-[24px]">
+									{% if elem.userid.picture %}
+										<img src="{{asset(elem.userid.picture)}}" class="h-[100px] w-[100px] rounded-full border border-[#6C6C6C]" alt="User Picture">
+									{% else %}
+										<img src="{{asset('assets/user-circle.svg')}}" class="h-[100px] w-[100px] rounded-full border-[#6C6C6C]" alt="User Picture">
+									{% endif %}
+									<div id="secondaryText" class="text-[32px]">{{elem.userid.username}}</div>
 								</div>
-								<div class="flex flex-col justify-end items-center space-y-[8px]">
-									<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.cpuid.model}}</div>
-									<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.ramid.memory}}</div>
-									<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.gpuid.model}}</div>
+								<div class="flex justify-end items-center w-full h-[100px] space-x-[16px]">
+									<div class="flex flex-col justify-end items-center space-y-[8px]">
+										<h3 id="fontText" class="text-base">CPU</h3>
+										<h3 id="fontText" class="text-base">RAM</h3>
+										<h3 id="fontText" class="text-base">GPU</h3>
+									</div>
+									<div class="flex flex-col justify-end items-center space-y-[8px]">
+										<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.cpuid.model}}</div>
+										<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.ramid.memory}}</div>
+										<div id="secondaryText" class="h-[24px] w-[200px] bg-[#2573EB] text-center">{{elem.userid.myspecs.gpuid.model}}</div>
+									</div>
 								</div>
 							</div>
+							<div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
+
+							<div id="secondaryText" class="text-[24px] leading-tight">{{elem.text}}</div>
 						</div>
-						<div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
-
-						<div id="secondaryText" class="text-[24px] leading-tight">{{elem.text}}</div>
-					</div>
-
-                {% else %}
-
-                <div class="h-[402px] w-[846px] p-[24px] bg-gray-500">
-						<div id="secondaryText" class="flex text-[2]">This could be you!</div>
-						<div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
-						<div id="secondaryText" class="text-[24px] leading-tight">Insert your first comment!</div>
-					</div>
-
-				{% endif %}
-			{% endfor %}
-			</div>
-			<div class="flex flex-col justify-center items-center h-[168px] w-[489px] bg-gray-500">
-				<div id="secondaryText" class="text-[32px]">GENRE</div>
-				<div class="border-b w-[388px] my-[24px] border-[#FFFFFF] "></div>
-				<div class="flex w-[404px] h-[24px] justify-center items-center">
-					{% for elem in genre %}
-						{% if elem.id is same as videogame.id %}
-							<div id="secondaryText" class="h-[24px] w-[124px] bg-[#333333] text-center mr-2">{{elem.category}}</div>
-						{% endif %}
-					{% endfor %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="h-[402px] w-[846px] p-[24px] bg-gray-500 mb-6">
+					<div id="secondaryText" class="flex text-[2]">This could be you!</div>
+					<div class="border-b w-full my-[32px] border-[#FFFFFF] "></div>
+					<div id="secondaryText" class="text-[24px] leading-tight">Insert your first comment!</div>
 				</div>
+			{% endif %}
+		</div>
+		<div class="flex flex-col justify-center items-center h-[168px] w-[489px] bg-gray-500">
+			<div id="secondaryText" class="text-[32px]">GENRE</div>
+			<div class="border-b w-[388px] my-[24px] border-[#FFFFFF] "></div>
+			<div class="flex w-[404px] h-[24px] justify-center items-center">
+				{% for elem in genre %}
+					{% if elem.id is same as videogame.id %}
+						<div id="secondaryText" class="h-[24px] w-[124px] bg-[#333333] text-center mr-2">{{elem.category}}</div>
+					{% endif %}
+				{% endfor %}
 			</div>
 		</div>
+	</div>
 
-		<div class="border-b w-[844px] border-[#FFFFFF] pt-[39px]"></div>
-		
-		<div>
-			<p id="secondaryText" class="">+ Add Comment</p>
-		</div>
+	<div class="border-b w-[844px] border-[#FFFFFF] pt-[39px]"></div>
 
-
+	<div>
+		<p id="secondaryText" class="">+ Add Comment</p>
 	</div>
 
 
-
-{% endblock %}
+</div>{% endblock %}

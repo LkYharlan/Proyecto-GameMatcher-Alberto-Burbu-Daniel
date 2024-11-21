@@ -45,31 +45,31 @@
 
 						<div class="flex ml-8 space-x-[5vw] items-center content-center">
 							<div>
-								<a id="searchGames" class="text-blue-600 text-3xl " href="{{path('searchgames')}}">
-									<button>SEARCH GAMES</button>
+								<a id="searchGames" class="text-blue-600 text-3xl" href="{{path('searchgames')}}">
+									<button class="hover:underline hover:decoration-blue-600">SEARCH GAMES</button>
 								</a>
 							</div>
 
 							<div>
-								<a id="secondaryText" class="text-2xl" href="{{path('about')}}">
-									<button>ABOUT US</button>
+								<a id="secondaryText" class="text-2xl " href="{{path('about')}}">
+									<button class="hover:underline hover:decoration-white">ABOUT US</button>
 								</a>
 							</div>
 
 							<div>
-								<a id="secondaryText" class="text-2xl" href="{{path('contact')}}">
-									<button>CONTACT</button>
+								<a id="secondaryText" class="text-2xl hover:underline" href="{{path('contact')}}">
+									<button class="hover:underline hover:decoration-white">CONTACT</button>
 								</a>
 							</div>
 
 							<div>
 								<a id="secondaryText" class="text-2xl" href="{{path('faq')}}">
-									<button>FAQ</button>
+									<button class="hover:underline hover:decoration-white">FAQ</button>
 								</a>
 							</div>
 							<div class="flex">
 								<a id="secondaryText" class="text-2xl" href="{{path('app_user_show', {'id': app.user.id})}}">
-									<div class="flex space-x-3 items-center">
+									<div class="flex space-x-3 items-center hover:underline hover:decoration-white">
 										<div id="secondaryText" class="flex space-x-3 items-center">
 											<p>{{app.user.username}}</p>
 											{% if app.user.picture %}
