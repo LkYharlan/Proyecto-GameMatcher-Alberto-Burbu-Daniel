@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gpulist index{% endblock %}
+
+{% block body %}
+    <h1>Gpulist index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Vram</th>
+                <th>Manufacturer</th>
+                <th>Gpuscore</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gpulist in gpulists %}
+            <tr>
+                <td>{{ gpulist.id }}</td>
+                <td>{{ gpulist.model }}</td>
+                <td>{{ gpulist.vram }}</td>
+                <td>{{ gpulist.manufacturer }}</td>
+                <td>{{ gpulist.gpuscore }}</td>
+                <td>
+                    <a href="{{ path('app_gpulist_show', {'id': gpulist.id}) }}">show</a>
+                    <a href="{{ path('app_gpulist_edit', {'id': gpulist.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gpulist_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Myspecs
+{% endblock %}
+
+{% block body %}
+	{# <h1>Create new Myspecs</h1>
+		
+		    {{ include('myspecs/_form.html.twig') }}
+		
+		    <a href="{{ path('app_myspecs_index') }}">back to list</a> #}
+
+<div class="flex items-center bg-[url(../../public/assets/backgroundnew.jpg)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
+
+	<div class="bg-[#606060] rounded-3xl mx-auto mt-[10vh] h-[55vh] w-[650px] flex flex-col items-center justify-center">
+
+		<h1 id="fontText" class="h3 mb-3 font-weight-normal text-6xl">SPECS</h1>
+
+		<div class="bg-white h-[1px] w-[400px] my-4"></div>
+		<div class="w-[450px]">
+
+			<div class="space-y-4 mb-8">
+				{{ form_errors(form) }}
+				{{ form_start(form) }}
+				{% for field in form %}
+					{% if field.vars.name is same as 'user_id' %}
+						{{ form_widget(field, {
+                        'value': app.user.id,
+                        'attr': {
+                        'class': 'w-full p-3 rounded-[0.4rem] bg-lightBg dark:bg-darkBg text-primary dark:text-darkText border border-lightBg dark:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-accent transition duration-200 ease-in-out'
+                        }
+                        }) }}
+					{% endif %}
+					{% if field.vars.name is not same as '_token' and field.vars.name is not same as 'user_id' %}
+						<div>
+							{{ form_label(field, null, {
+                        'label_attr': {
+                        'id': 'fontText',
+                        'class':'text-white transition ease-in-out text-primary dark:text-accent font-light mb-1',
+                        'for': field.vars.id
+                        }
+                        }) }}
+							{{ form_widget(field, {
+                        'attr': {
+                        'id': field.vars.id,
+                        'class': 'w-full p-3 rounded-[0.4rem] bg-lightBg dark:bg-darkBg text-primary dark:text-darkText border border-lightBg dark:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-accent transition duration-200 ease-in-out mb-4'
+                        }
+                        }) }}
+							{{ form_errors(field) }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			<div class="flex justify-between">
+				<button id="fontText" class="btn btn-lg btn-primary  bg-blue-600 w-[220px] h-[50px] border border-blue-700 rounded-[0.4rem] text-white" type="submit">
+					SAVE
+				</button>
+				{{ form_end(form) }}
+
+				<a href="{{path('landing')}}">
+					<button id="fontText" class="btn btn-lg btn-primary  bg-gray-600 w-[220px] h-[50px] border border-blue-700 rounded-[0.4rem] text-white">
+						SKIP
+					</button>
+				</a>
+			</div>
+		</div>
+
+
+		<div class="mx-[2vw] space-y-4">
+
+</div>
+		{% endblock %}
+
+		{# 
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">CPU</p>
+					<select name="cpu" id="cpu" class="rounded-2xl w-[10vw]">
+						{% for elem in cpu %}
+							<option value="">{{elem.model}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">MEMORY</p>
+					<select name="ram" id="ram" class="rounded-2xl w-[10vw]">
+						{% for elem in form.children.cpu_id.vars.choices %}
+							<option value="">{{elem.data.model}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				
+				<div id="selectText" class="secondaryText pt-3">
+					<p id="secondaryText">GPU</p>
+					<select name="gpu" id="gpu" class="rounded-2xl w-[10vw]">
+						{% for elem in gpu %}
+							<option value="">{{elem.model}}</option>
+						{% endfor %}
+					</select>
+				</div></div></div> #}

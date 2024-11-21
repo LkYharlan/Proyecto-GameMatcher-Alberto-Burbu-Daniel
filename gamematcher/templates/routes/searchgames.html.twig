@@ -1,0 +1,169 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SEARCH GAMES
+{% endblock %}
+
+
+{% block body %}
+	<div class="border-t border-b border-[#6A6A6A] h-full">
+
+		<div>
+			<div class="w-full h-[45px] border-[rgb(106,106,106)] mr-0 mb-0" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation"></div>
+		</div>
+
+
+		<div>
+			{# Aqui irá la barra de busqueda #}
+		</div>
+
+	</div>
+
+
+	<div class="flex">
+		<div class="flex-col w-[20vw] h-[100vw] border-r border-[#6A6A6A] justify-center ">
+
+			<div class="flex-col justify-center px-2">
+				<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">CATEGORIES</p>
+				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+			</div>
+			<form action="{{path('searchgames')}}" method="post">
+					<div class="mx-[2vw] space-y-4">
+				<fieldset>
+						<div id="secondaryText" class="secondaryText pt-3">
+							<input type="checkbox" id="action" name="genre[]" value="action">
+							<label>Action</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" id="adventure" name="genre[]" value="adventure">
+							<label>Adventure</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" id="cooperative" name="genre[]" value="cooperative">
+							<label>Cooperative</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" id="fps" name="genre[]" value="fps">
+							<label>FPS</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="horror" value="horror">
+							<label>Horror</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="mmorpg" value="mmorpg">
+							<label>MMORPG</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="puzzle" value="puzzle">
+							<label>Puzzle</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="racing" value="racing">
+							<label>Racing</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="rpg" value="rpg">
+							<label>RPG</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="sports" value="sports">
+							<label>Sports</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="strategy" value="strategy">
+							<label>Strategy</label>
+						</div>
+
+						<div id="secondaryText" class="secondaryText">
+							<input type="checkbox" name="genre[]" id="survival" value="survival">
+							<label>Survival</label>
+						</div>
+				</fieldset>
+					</div>
+
+				<div class="flex-col justify-center px-2 pt-7">
+					<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+				</div>
+
+				<div class="flex-col justify-center px-2">
+					<p id="secondaryText" class="pt-[2vh] self-center pl-4 text-lg">SPECS</p>
+				</div>
+
+
+				<div class="mx-[2vw] space-y-4 flex flex-col">
+					<div id="selectText" class="secondaryText pt-3">
+						<p id="secondaryText">CPU</p>
+						<select name="cpu" id="cpu" class="rounded-2xl w-[10vw]">
+							{% for elem in cpu %}
+								{% if elem.id is same as(app.user.myspecs.cpuid.id) %}
+									<option selected>{{elem.model}}</option>
+								{% else %}
+									<option>{{elem.model}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+
+					<div id="selectText" class="secondaryText pt-3">
+						<p id="secondaryText">MEMORY</p>
+						<select name="ram" id="ram" class="rounded-2xl w-[10vw]">
+							{% for elem in ram %}
+								{% if elem.id is same as(app.user.myspecs.ramid.id) %}
+									<option selected>{{elem.memory}}</option>
+								{% else %}
+									<option>{{elem.memory}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+
+					<div id="selectText" class="secondaryText pt-3">
+						<p id="secondaryText">GPU</p>
+						<select name="gpu" id="gpu" class="rounded-2xl w-[10vw]">
+							{% for elem in gpu %}
+								{% if elem.id is same as(app.user.myspecs.gpuid.id) %}
+									<option selected>{{elem.model}}</option>
+								{% else %}
+									<option>{{elem.model}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+
+					<div class="w-[128px] h-[24px] bg-blue-600 rounded-2xl ml-6">
+						<a href="{{path('searchgames')}}" id="secondaryText" class="flex self-center justify-center">
+							<button>Search</button>
+						</a>
+					</div>
+				</div>
+			</form>
+
+
+			<div class="flex-col justify-center px-2 pt-7">
+				<div class="border-b w-[15vw] border-[rgb(106,106,106)]"></div>
+			</div>
+
+		</div>
+
+		<div class="flex px-[0px] py-[3vh] justify-center w-[100vw] h-full flex-wrap gap-4">
+			{% for videogame in videogames %}
+				{# {% if videogame.ramrequirement.ramscore <= app.user.myspecs.ramid.ramscore and videogame.cpurequirement.cpuscore <= app.user.myspecs.cpuid.cpuscore and videogame.gpurequirement.gpuscore <= app.user.myspecs.gpuid.gpuscore %} #}
+				<a class="w-1/6" href="{{path('app_videogames_show', {'id': videogame.id})}}">
+					<img src="{{asset(videogame.picture)}}" class="rounded-2xl " alt="">
+				</a>
+				{# {% endif %} #}
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

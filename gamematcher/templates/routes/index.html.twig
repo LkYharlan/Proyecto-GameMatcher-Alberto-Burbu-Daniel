@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GAMEMATCHER{% endblock %}
+
+
+
+{% block body %}
+
+{% if not app.user %}
+
+    <div class="flex items-center bg-[url(../../public/assets/pc-gaming.png)] bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] w-screen">
+
+        <div id="fontText" class="w-full h-full bg-black bg-opacity-60 flex flex-col justify-center items-center"> 
+            <p class="text-[80px] text-center mx-[10vw] leading-none tracking-wide">Would you like to know which games you can enjoy without worrying about hardware?</p>
+            <p class="text-[32px] text-center mx-[20vw] pt-10 tracking-wide">Play, stay updated, and stay informed: GameMatcher helps you find games for your PC and keeps you up to date with gaming news</p>
+            <div class="flex justify-center items-center bg-blue-600 w-[228px] h-[56px] px-4 mt-4 rounded-2xl">
+                <a id="fontText" class="text-[32px] tracking-wide" href="{{path('app_register')}}">
+                    <button>Start Now</button>
+                </a>
+            </div>
+        </div>
+
+        <div id="footerText" class="content-center absolute h-10 bg-black w-full self-end ">
+            <p class="text-[16px] text-center mx-[20vw] leading-none">COPYRIGHT 2024 &copy;</p>
+        </div>
+    </div>
+
+{% else %}
+<div>
+    {% if not app.user.myspecs %}
+    <a id="fontText" href="{{path('app_myspecs_new')}}" class="flex bg-[#dab511] w-full h-[2vw] self-center  content-center justify-center"><button>CREATE YOUR SPECS CARD</button></a>
+    {% endif %}
+    <div class="flex items-center bg-[url(../../public/assets/news_background.jpg)] bg-cover bg-center h-[30vh]">
+        <div class="content-center absolute h-20 bg-black bg-opacity-60 w-full self-start ">
+            <p id="fontText" class="flex justify-center text-[50px] align-middle">NEWS</p>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6 w-full h-screen  ">
+
+        <div class="flex items-center bg-[url(../../public/assets/concordnew.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-36 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">"No entiendo por qué no funcionó": El director del episodio de Concord para Secret Level habla de la cancelación.</p>
+            </div>
+        </div>
+
+        <div class="flex items-center bg-[url(../../public/assets/eanews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">El director ejecutivo de Electronic Arts, Andrew Wilson, está en las quinielas para dirigir Disney.</p>
+            </div>
+        </div>
+
+        <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+            <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+                <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+            </div>
+        </div>
+
+        <div class="flex items-center bg-[url(../../public/assets/ubisoftnews.jpg)] border border-blue-600 bg-cover bg-center h-[480px] w-[850px]  my-[48px] rounded-2xl border-">
+	        <div class="content-center absolute h-40 bg-black bg-opacity-60 w-[848px] self-end rounded-b-2xl ">
+		        <p id="newsText" class="flex justify-center text-[35px] align-middle m-3">Se cumplen 10 años del lanzamiento de Assassin's Creed Unity, un problemático debut que provocó cambios en Ubisoft</p>
+	        </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}
+
+

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Videogames index{% endblock %}
+
+{% block body %}
+    <h1>Videogames index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Platform</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for videogame in videogames %}
+            <tr>
+                <td>{{ videogame.id }}</td>
+                <td>{{ videogame.platform }}</td>
+                <td>{{ videogame.name }}</td>
+                <td>
+                    <a href="{{ path('app_videogames_show', {'id': videogame.id}) }}">show</a>
+                    <a href="{{ path('app_videogames_edit', {'id': videogame.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_videogames_new') }}">Create new</a>
+{% endblock %}

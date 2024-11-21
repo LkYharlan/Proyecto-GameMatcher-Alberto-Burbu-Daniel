@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cpulist{% endblock %}
+
+{% block body %}
+    <h1>Create new Cpulist</h1>
+
+    {{ include('cpulist/_form.html.twig') }}
+
+    <a href="{{ path('app_cpulist_index') }}">back to list</a>
+{% endblock %}

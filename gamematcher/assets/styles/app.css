@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bgcolor{
+    background-color: #333333;
+}
+#fontText{ 
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+#searchGames {
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#headerColor{
+    background-color: #1c1c1c;
+}
+
+#footerText{
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #cccccc;
+}
+
+#secondaryText {
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white
+}
+
+#newsText{ 
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #4A6EFF;
+}
+
+#selectText {
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black
+}
+
+#alertText{ 
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ED4956;
+    }
+
+#alert ul li{
+    font-family: "Inclusive Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ED4956;
+}
+
+#registration_form_agreeTerms {
+    margin-top: 5px;
+    display: block;
+    width: fit-content;
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cpulist index{% endblock %}
+
+{% block body %}
+    <h1>Cpulist index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Core</th>
+                <th>Manufacturer</th>
+                <th>Cpuscore</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cpulist in cpulists %}
+            <tr>
+                <td>{{ cpulist.id }}</td>
+                <td>{{ cpulist.model }}</td>
+                <td>{{ cpulist.core }}</td>
+                <td>{{ cpulist.manufacturer }}</td>
+                <td>{{ cpulist.cpuscore }}</td>
+                <td>
+                    <a href="{{ path('app_cpulist_show', {'id': cpulist.id}) }}">show</a>
+                    <a href="{{ path('app_cpulist_edit', {'id': cpulist.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cpulist_new') }}">Create new</a>
+{% endblock %}

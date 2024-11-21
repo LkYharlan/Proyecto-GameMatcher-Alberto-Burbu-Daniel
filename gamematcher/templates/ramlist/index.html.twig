@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ramlist index{% endblock %}
+
+{% block body %}
+    <h1>Ramlist index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Technology</th>
+                <th>Memory</th>
+                <th>Frequency</th>
+                <th>Ramscore</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ramlist in ramlists %}
+            <tr>
+                <td>{{ ramlist.id }}</td>
+                <td>{{ ramlist.technology }}</td>
+                <td>{{ ramlist.memory }}</td>
+                <td>{{ ramlist.frequency }}</td>
+                <td>{{ ramlist.ramscore }}</td>
+                <td>
+                    <a href="{{ path('app_ramlist_show', {'id': ramlist.id}) }}">show</a>
+                    <a href="{{ path('app_ramlist_edit', {'id': ramlist.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ramlist_new') }}">Create new</a>
+{% endblock %}

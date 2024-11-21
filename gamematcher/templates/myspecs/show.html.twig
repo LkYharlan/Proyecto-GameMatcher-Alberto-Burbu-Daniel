@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Myspecs{% endblock %}
+
+{% block body %}
+{{dump(myspec)}}
+
+    <h1>Myspecs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ myspec.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_myspecs_index') }}">back to list</a>
+
+    <a href="{{ path('app_myspecs_edit', {'id': myspec.id}) }}">edit</a>
+
+    {{ include('myspecs/_delete_form.html.twig') }}
+{% endblock %}
